@@ -127,23 +127,124 @@ def execute_cleaning_code(code: str, raw_text: str) -> str:
         raise ValueError("Generated code does not define a clean() or clean_text() function")
 
 
-def clean_text(raw_text: str, jurisdiction: str = "in") -> str:
-    """Clean raw PDF text using LLM-generated code.
+def verify_cleaned_text(raw_text: str, cleaned_text: str) -> tuple[bool, str]:
+    """Verify the cleaned text preserves important content.
+
+    Args:
+        raw_text: Original raw text
+        cleaned_text: Cleaned text to verify
+
+    Returns:
+        Tuple of (is_valid, error_message)
+    """
+    errors = []
+
+    # Check not empty
+    if len(cleaned_text.strip()) == 0:
+        errors.append("Cleaned text is empty")
+
+    # Check not too short (should preserve most content)
+    if len(cleaned_text) < len(raw_text) * 0.3:
+        errors.append(f"Too much removed: {len(cleaned_text)}/{len(raw_text)} chars")
+
+    # Check key legal content preserved (case-insensitive)
+    key_phrases = ["chapter", "act", "section", "shall"]
+    cleaned_lower = cleaned_text.lower()
+    found = sum(1 for phrase in key_phrases if phrase in cleaned_lower)
+    if found < 2:
+        errors.append(f"Missing key legal content (found {found}/4 key phrases)")
+
+    if errors:
+        return False, "; ".join(errors)
+    return True, ""
+
+
+def generate_fix_prompt(original_code: str, error: str, sample: str) -> str:
+    """Generate a prompt to fix the cleaning code."""
+    return f'''The cleaning code you generated has issues:
+ERROR: {error}
+
+Original code:
+```python
+{original_code}
+```
+
+Sample text being cleaned:
+"""
+{sample[:1500]}
+"""
+
+Please fix the code. The issue is that it's removing too much content.
+Make the patterns MORE SPECIFIC to only remove actual noise.
+Keep all legal content (chapters, sections, definitions).
+
+Return ONLY the fixed Python code.
+'''
+
+
+def clean_text(raw_text: str, jurisdiction: str = "in", max_retries: int = 3) -> str:
+    """Clean raw PDF text using LLM-generated code with verification loop.
 
     Args:
         raw_text: Raw text from PDF extraction
         jurisdiction: Country code for context (in, uk, us)
+        max_retries: Maximum retry attempts if verification fails
 
     Returns:
         Cleaned text with noise removed
     """
-    # Take a sample for Claude to analyze
     sample = raw_text[:3000]
+    client = get_client()
+    model = get_model()
 
-    # Generate cleaning code
+    # Initial code generation
     code = generate_cleaning_code(sample, jurisdiction)
 
-    # Execute the code on full text
-    cleaned = execute_cleaning_code(code, raw_text)
+    for attempt in range(max_retries):
+        try:
+            # Execute the code
+            cleaned = execute_cleaning_code(code, raw_text)
 
+            # Verify the output
+            is_valid, error = verify_cleaned_text(raw_text, cleaned)
+
+            if is_valid:
+                return cleaned
+
+            # If not valid and we have retries left, ask Claude to fix it
+            if attempt < max_retries - 1:
+                fix_prompt = generate_fix_prompt(code, error, sample)
+                response = client.messages.create(
+                    model=model,
+                    max_tokens=2000,
+                    messages=[{"role": "user", "content": fix_prompt}]
+                )
+                new_code = response.content[0].text
+
+                # Extract code from markdown if present
+                code_match = re.search(r'```python\s*(.*?)\s*```', new_code, re.DOTALL)
+                if code_match:
+                    code = code_match.group(1).strip()
+                else:
+                    code = new_code.strip()
+
+        except SyntaxError as e:
+            # Code has syntax error, ask Claude to fix
+            if attempt < max_retries - 1:
+                fix_prompt = generate_fix_prompt(code, f"SyntaxError: {e}", sample)
+                response = client.messages.create(
+                    model=model,
+                    max_tokens=2000,
+                    messages=[{"role": "user", "content": fix_prompt}]
+                )
+                new_code = response.content[0].text
+                code_match = re.search(r'```python\s*(.*?)\s*```', new_code, re.DOTALL)
+                if code_match:
+                    code = code_match.group(1).strip()
+                else:
+                    code = new_code.strip()
+            else:
+                raise
+
+    # Return best effort after max retries
     return cleaned
