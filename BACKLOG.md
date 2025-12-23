@@ -21,6 +21,7 @@
 | T-015 | Implement pdf_extractor.py (GREEN) | 3 |
 | T-016 | Set up Claude API client | 2 |
 | T-017 | Write test_text_cleaner.py - LLM-based (RED) | 2 |
+| T-018 | Implement text_cleaner.py - LLM-based (GREEN) | 3 |
 
 ### IN PROGRESS
 | ID | Task | Points | Exit Criteria |
@@ -30,7 +31,6 @@
 ### TO DO
 | ID | Task | Points | Sprint |
 |----|------|--------|--------|
-| T-018 | Implement text_cleaner.py - LLM-based (GREEN) | 3 | 1 |
 | T-020 | Write test_models.py (RED) | 2 | 2 |
 | T-021 | Implement document.py models (GREEN) | 2 | 2 |
 | T-023 | Create extract_metadata prompt | 2 | 2 |
@@ -108,6 +108,6 @@ Exit Criteria for T-XXX:
 
 ---
 
-## Next Task: T-018
+## Next Task: T-020
 
-When ready to start, pick T-018 (Implement text_cleaner.py - LLM code execution GREEN).
+When ready to start, pick T-020 (Write test_models.py - RED).
