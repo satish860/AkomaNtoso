@@ -16,6 +16,7 @@
 | T-010 | Create project folder structure | 1 |
 | T-011 | Create requirements.txt and install deps | 1 |
 | T-012 | Create .env.example for API keys | 1 |
+| T-013 | Set up pytest configuration | 1 |
 
 ### IN PROGRESS
 | ID | Task | Points | Exit Criteria |
@@ -25,7 +26,6 @@
 ### TO DO
 | ID | Task | Points | Sprint |
 |----|------|--------|--------|
-| T-013 | Set up pytest configuration | 1 | 1 |
 | T-014 | Write test_pdf_extractor.py (RED) | 2 | 1 |
 | T-015 | Implement pdf_extractor.py (GREEN) | 3 | 1 |
 | T-016 | Write test_text_cleaner.py (RED) | 2 | 1 |
@@ -108,6 +108,6 @@ Exit Criteria for T-XXX:
 
 ---
 
-## Next Task: T-013
+## Next Task: T-014
 
-When ready to start, pick T-013 (Set up pytest configuration).
+When ready to start, pick T-014 (Write test_pdf_extractor.py - RED).
