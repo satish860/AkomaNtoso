@@ -28,11 +28,11 @@
 ### TO DO
 | ID | Task | Points | Sprint |
 |----|------|--------|--------|
-| T-016 | Write test_text_cleaner.py (RED) | 2 | 1 |
-| T-017 | Implement text_cleaner.py (GREEN) | 3 | 1 |
+| T-016 | Set up Claude API client | 2 | 1 |
+| T-017 | Write test_text_cleaner.py - LLM-based (RED) | 2 | 1 |
+| T-018 | Implement text_cleaner.py - LLM-based (GREEN) | 3 | 1 |
 | T-020 | Write test_models.py (RED) | 2 | 2 |
 | T-021 | Implement document.py models (GREEN) | 2 | 2 |
-| T-022 | Set up Claude API client | 2 | 2 |
 | T-023 | Create extract_metadata prompt | 2 | 2 |
 | T-024 | Write test_llm_parser.py - metadata (RED) | 2 | 2 |
 | T-025 | Implement extract_metadata function (GREEN) | 3 | 2 |
@@ -110,4 +110,4 @@ Exit Criteria for T-XXX:
 
 ## Next Task: T-016
 
-When ready to start, pick T-016 (Write test_text_cleaner.py - RED).
+When ready to start, pick T-016 (Set up Claude API client - needed for LLM-based text cleaning).

@@ -42,6 +42,7 @@ AkomaNtoso/
     |   |   |-- __init__.py
     |   |   |-- document.py            # Document model classes
     |   |-- prompts/
+    |   |   |-- clean_text.txt         # Prompt for text cleaning (LLM-based)
     |   |   |-- extract_metadata.txt   # Prompt for metadata extraction
     |   |   |-- parse_structure.txt    # Prompt for structure parsing
     |   |   |-- extract_section.txt    # Prompt for section parsing
@@ -145,23 +146,100 @@ def extract_text(pdf_path: str) -> str:
     ...
 ```
 
-**Step 1.3: Text Cleaner (TDD)**
+**Step 1.3: Text Cleaner (LLM-Based)**
 
-Tests first:
+**Why LLM-based instead of regex?**
+- Different jurisdictions (India, UK, USA) have different noise patterns
+- Different document types (Acts, Bills, Ordinances) have different headers
+- LLM can adapt to any format without manual regex maintenance
+- Future-proof for F-001 to F-006 in ICEBOX
+
+**Architecture:**
+```
+Raw Text --> Sample (first 2000 chars) --> Claude API
+                                              |
+                                              v
+                                    "Identify noise patterns,
+                                     return cleaned text"
+                                              |
+                                              v
+                                        Clean Text
+```
+
+**Implementation:**
+```python
+# src/extractor/text_cleaner.py
+
+def clean_text(raw_text: str, jurisdiction: str = "in") -> str:
+    """Use LLM to clean extracted text.
+
+    Args:
+        raw_text: Raw text from PDF extraction
+        jurisdiction: Country code (in, uk, us) for context
+
+    Returns:
+        Cleaned text with noise removed
+    """
+    prompt = f"""
+    You are cleaning legal document text extracted from a PDF.
+    Jurisdiction: {jurisdiction}
+
+    Remove the following types of noise:
+    - Page headers/footers (e.g., "THE GAZETTE OF INDIA EXTRAORDINARY")
+    - Page numbers (standalone or embedded)
+    - Registration/metadata lines
+    - Non-English text (Hindi, etc.) that is not part of the Act
+    - Repeated publication information
+
+    Keep:
+    - The Act title, number, date
+    - All chapters, sections, subsections
+    - Definitions, illustrations, provisos, explanations
+    - Schedules and annexures
+
+    Return ONLY the cleaned text, no explanations.
+
+    Text to clean:
+    {raw_text}
+    """
+
+    response = client.messages.create(
+        model="claude-sonnet-4-20250514",
+        max_tokens=len(raw_text) + 1000,
+        messages=[{"role": "user", "content": prompt}]
+    )
+
+    return response.content[0].text
+```
+
+**Tests (TDD):**
 ```python
 # tests/test_text_cleaner.py
 
-def test_remove_page_headers():
+def test_clean_text_removes_gazette_headers():
     """Should remove 'THE GAZETTE OF INDIA EXTRAORDINARY' headers"""
-    ...
+    raw = "THE GAZETTE OF INDIA EXTRAORDINARY\nCHAPTER I\nPRELIMINARY"
+    cleaned = clean_text(raw)
+    assert "GAZETTE" not in cleaned
+    assert "CHAPTER I" in cleaned
 
-def test_remove_page_numbers():
-    """Should remove standalone page numbers"""
-    ...
+def test_clean_text_preserves_act_content():
+    """Should preserve the actual Act content"""
+    cleaned = clean_text(sample_raw_text)
+    assert "DIGITAL PERSONAL DATA PROTECTION ACT" in cleaned
+    assert "CHAPTER I" in cleaned
 
-def test_normalize_whitespace():
-    """Multiple spaces/newlines should be normalized"""
-    ...
+def test_clean_text_removes_hindi():
+    """Should remove Hindi/Devanagari headers"""
+    raw = "vlk/kkj.k\nEXTRAORDINARY\nCHAPTER I"
+    cleaned = clean_text(raw)
+    assert "vlk/kkj.k" not in cleaned
+
+def test_clean_text_removes_page_numbers():
+    """Should remove standalone and embedded page numbers"""
+    raw = "Section 1.\n2\nSection 2."
+    cleaned = clean_text(raw)
+    # Page number "2" should be removed but section numbers preserved
 ```
 
 ---
