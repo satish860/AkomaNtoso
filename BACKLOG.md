@@ -18,6 +18,7 @@
 | T-012 | Create .env.example for API keys | 1 |
 | T-013 | Set up pytest configuration | 1 |
 | T-014 | Write test_pdf_extractor.py (RED) | 2 |
+| T-015 | Implement pdf_extractor.py (GREEN) | 3 |
 
 ### IN PROGRESS
 | ID | Task | Points | Exit Criteria |
@@ -27,7 +28,6 @@
 ### TO DO
 | ID | Task | Points | Sprint |
 |----|------|--------|--------|
-| T-015 | Implement pdf_extractor.py (GREEN) | 3 | 1 |
 | T-016 | Write test_text_cleaner.py (RED) | 2 | 1 |
 | T-017 | Implement text_cleaner.py (GREEN) | 3 | 1 |
 | T-020 | Write test_models.py (RED) | 2 | 2 |
@@ -108,6 +108,6 @@ Exit Criteria for T-XXX:
 
 ---
 
-## Next Task: T-015
+## Next Task: T-016
 
-When ready to start, pick T-015 (Implement pdf_extractor.py - GREEN).
+When ready to start, pick T-016 (Write test_text_cleaner.py - RED).
