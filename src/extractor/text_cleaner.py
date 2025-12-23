@@ -7,41 +7,53 @@ import re
 from src.parser.llm_client import get_client, get_model
 
 
-CLEANING_CODE_PROMPT = '''You are a code generator. Analyze this sample text from a legal document PDF and write Python code to clean it.
+CLEANING_CODE_PROMPT = '''You are a code generator. Write Python code to clean legal document text extracted from an Indian Gazette PDF.
 
 Sample text:
 """
 {sample_text}
 """
 
-Write a Python function called `clean(text)` that:
-1. Removes page headers/footers (e.g., "THE GAZETTE OF INDIA EXTRAORDINARY", "PART II")
-2. Removes standalone page numbers (lines with only digits)
-3. Removes registration/metadata lines (e.g., "REGISTERED NO.", "CG-DL-E-")
-4. Removes lines that are primarily non-ASCII characters (use character range, NOT literal Hindi text)
-5. Normalizes excessive whitespace (multiple newlines to double, multiple spaces to single)
-6. Preserves the actual legal content (Act title, chapters, sections, definitions)
+Write a Python function called `clean(text)` that removes noise while preserving legal content.
 
-IMPORTANT RULES FOR THE CODE:
-- Use Unicode ranges to match non-English text: r'[^\x00-\x7F]+' for non-ASCII
-- Do NOT copy/paste Hindi or Devanagari characters into regex patterns
-- Keep regex patterns simple and ASCII-only
-- Use re.MULTILINE flag when matching line patterns
+REMOVE these patterns:
+1. Lines with "GAZETTE OF INDIA", "EXTRAORDINARY", "PART II", "PUBLISHED BY AUTHORITY"
+2. Registration lines containing: "REGISTERED NO.", "CG-DL-E-", "xxxGIDExxx"
+3. Standalone page numbers (lines with only digits)
+4. Lines starting with "No." followed by "]"
+5. Lines that are ONLY non-ASCII characters (use: r'^[^\x00-\x7F]+$')
+6. "Separate paging" informational lines
 
-Return ONLY the Python code, no explanations. The code should:
-- Import any needed modules (like `re`) at the top
-- Define a single function: `def clean(text):`
-- Return the cleaned text string
+PRESERVE:
+- Act titles (THE ... ACT)
+- CHAPTER headings
+- Section numbers and content
+- MINISTRY OF LAW header
+- All legal content in English
 
-Example format:
+CODING RULES:
+- To match non-ASCII: use exactly r'[^\x00-\x7F]'
+- Only remove lines that are ENTIRELY non-ASCII, not lines with mixed content
+- Use re.MULTILINE for line-based patterns
+- Normalize multiple newlines at the end
+
+Return ONLY the Python code:
 ```python
 import re
 
 def clean(text):
-    # Remove lines with primarily non-ASCII characters (Hindi headers)
-    text = re.sub(r'^[^\x00-\x7F].*$', '', text, flags=re.MULTILINE)
+    # Remove lines that are ONLY non-ASCII (pure Hindi lines)
+    text = re.sub(r'^[^\x00-\x7F]+$', '', text, flags=re.MULTILINE)
     # Remove gazette headers
-    text = re.sub(r'THE GAZETTE OF INDIA.*', '', text)
+    text = re.sub(r'^.*GAZETTE OF INDIA.*$', '', text, flags=re.MULTILINE)
+    text = re.sub(r'^.*EXTRAORDINARY.*$', '', text, flags=re.MULTILINE)
+    text = re.sub(r'^.*PUBLISHED BY AUTHORITY.*$', '', text, flags=re.MULTILINE)
+    # Remove registration metadata
+    text = re.sub(r'^.*REGISTERED NO\..*$', '', text, flags=re.MULTILINE)
+    text = re.sub(r'^.*CG-DL-E-.*$', '', text, flags=re.MULTILINE)
+    text = re.sub(r'^.*xxxGIDExxx.*$', '', text, flags=re.MULTILINE)
+    # Remove standalone page numbers
+    text = re.sub(r'^\s*\d+\s*$', '', text, flags=re.MULTILINE)
     # Normalize whitespace
     text = re.sub(r'\n{{3,}}', '\n\n', text)
     return text.strip()
