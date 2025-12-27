@@ -22,6 +22,15 @@
 | T-016 | Set up Claude API client | 2 |
 | T-017 | Write test_text_cleaner.py - LLM-based (RED) | 2 |
 | T-018 | Implement text_cleaner.py - LLM-based (GREEN) | 3 |
+| T-019 | Analyze cleaned text structure (discovery) | 1 |
+| T-020 | Extract chapters using structured outputs (TDD) | 2 |
+| T-021 | Extract sections within chapters (TDD) | 2 |
+| T-022 | Extract metadata from document (TDD) | 2 |
+| T-023 | Extract subsections within sections (TDD) | 2 |
+| T-024 | Extract clauses within subsections (TDD) | 2 |
+| T-025 | Extract subclauses within clauses (TDD) | 2 |
+| T-026 | Create unified document extractor | 3 |
+| T-027 | Write test_akn_generator.py - basic (TDD) | 2 |
 
 ### IN PROGRESS
 | ID | Task | Points | Exit Criteria |
@@ -31,35 +40,10 @@
 ### TO DO
 | ID | Task | Points | Sprint |
 |----|------|--------|--------|
-| T-020 | Write test_models.py (RED) | 2 | 2 |
-| T-021 | Implement document.py models (GREEN) | 2 | 2 |
-| T-023 | Create extract_metadata prompt | 2 | 2 |
-| T-024 | Write test_llm_parser.py - metadata (RED) | 2 | 2 |
-| T-025 | Implement extract_metadata function (GREEN) | 3 | 2 |
-| T-026 | Create parse_structure prompt | 2 | 2 |
-| T-027 | Write test_llm_parser.py - structure (RED) | 2 | 2 |
-| T-028 | Implement parse_structure function (GREEN) | 5 | 2 |
-| T-029 | Create parse_section prompt | 2 | 2 |
-| T-030 | Write test_llm_parser.py - section (RED) | 2 | 2 |
-| T-031 | Implement parse_section function (GREEN) | 3 | 2 |
-| T-040 | Write test_akn_generator.py - basic (RED) | 2 | 3 |
-| T-041 | Implement basic AKN XML structure (GREEN) | 3 | 3 |
-| T-042 | Write test_akn_generator.py - metadata (RED) | 2 | 3 |
-| T-043 | Implement FRBR metadata generation (GREEN) | 3 | 3 |
-| T-044 | Write test_akn_generator.py - body (RED) | 2 | 3 |
-| T-045 | Implement body generation (GREEN) | 5 | 3 |
-| T-046 | Write test_akn_generator.py - special (RED) | 2 | 3 |
-| T-047 | Implement special elements (GREEN) | 3 | 3 |
-| T-048 | Write test_cli.py (RED) | 2 | 3 |
-| T-049 | Implement cli.py (GREEN) | 3 | 3 |
-| T-050 | Write test_e2e.py (RED) | 3 | 4 |
-| T-051 | Run full pipeline on DPDP Act (GREEN) | 5 | 4 |
-| T-052 | Add confidence markers to output | 3 | 4 |
-| T-053 | Add validate command to CLI | 2 | 4 |
-| T-054 | Add preview command to CLI | 2 | 4 |
-| T-055 | Manual review of DPDP Act output | 3 | 4 |
-| T-056 | Fix issues found in review | 5 | 4 |
-| T-057 | Create README.md | 2 | 4 |
+| T-028 | Add XML validation against AKN schema | 2 | 3 |
+| T-029 | End-to-end test: PDF to AKN XML | 3 | 4 |
+| T-030 | Generate AKN for DPDP Act and review | 2 | 4 |
+| T-031 | Create README with usage docs | 2 | 4 |
 
 ### ICEBOX (Future)
 | ID | Task | Points |
@@ -108,6 +92,6 @@ Exit Criteria for T-XXX:
 
 ---
 
-## Next Task: T-020
+## Next Task: T-028
 
-When ready to start, pick T-020 (Write test_models.py - RED).
+When ready to start, pick T-028 (Add XML validation against AKN schema).
