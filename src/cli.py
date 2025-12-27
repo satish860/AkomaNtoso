@@ -39,13 +39,16 @@ def extract(pdf_path: str, lines: int):
 @click.argument('pdf_path', type=click.Path(exists=True))
 @click.option('--lines', '-n', default=100, help='Number of lines to show')
 @click.option('--save', '-s', type=click.Path(), help='Save cleaned text to file')
-def clean(pdf_path: str, lines: int, save: str):
+@click.option('--pages', '-p', is_flag=True, help='Include page markers for PDF navigation')
+def clean(pdf_path: str, lines: int, save: str, pages: bool):
     """Extract and clean text from a PDF file using LLM."""
     from src.extractor.pdf_extractor import extract_text
     from src.extractor.text_cleaner import clean_text
 
     console.print(f"[bold blue]Extracting text from:[/] {pdf_path}")
-    raw_text = extract_text(pdf_path)
+    raw_text = extract_text(pdf_path, include_page_markers=pages)
+    if pages:
+        console.print("[dim]Page markers enabled for PDF navigation[/]")
     console.print(f"[dim]Raw: {len(raw_text)} characters[/]")
 
     console.print("[bold blue]Cleaning text (using Claude)...[/]")
@@ -324,24 +327,29 @@ def preview(text_path: str, pdf: str, output: str, quick: bool, open_browser: bo
     def on_progress(msg: str):
         console.print(f"[dim]{msg}[/]")
 
-    # Extract document
-    with console.status("[bold green]Extracting document..."):
-        doc = extract_document(text, extract_subsections_flag=not quick, on_progress=on_progress)
+    # Extract document (pass PDF path for page number extraction)
+    doc = extract_document(
+        text,
+        extract_subsections_flag=not quick,
+        on_progress=on_progress,
+        pdf_path=pdf
+    )
 
     # Generate preview HTML
     console.print("[bold green]Generating HTML preview...[/]")
 
-    # Convert PDF path to relative path for HTML
-    pdf_rel = None
+    # Copy PDF to output folder (same folder as HTML for relative path to work)
+    pdf_filename = None
     if pdf:
-        pdf_abs = Path(pdf).resolve()
-        output_abs = Path(output).resolve()
-        try:
-            pdf_rel = str(pdf_abs.relative_to(output_abs.parent))
-        except ValueError:
-            pdf_rel = str(pdf_abs)
+        import shutil
+        output_dir = Path(output).parent
+        output_dir.mkdir(parents=True, exist_ok=True)
+        pdf_filename = Path(pdf).name
+        pdf_dest = output_dir / pdf_filename
+        shutil.copy2(pdf, pdf_dest)
+        console.print(f"[dim]Copied PDF to {pdf_dest}[/]")
 
-    html = generate_preview(doc, pdf_path=pdf_rel)
+    html = generate_preview(doc, pdf_path=pdf_filename)
 
     # Save
     Path(output).parent.mkdir(parents=True, exist_ok=True)

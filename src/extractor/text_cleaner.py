@@ -30,6 +30,7 @@ PRESERVE:
 - Section numbers and content
 - MINISTRY OF LAW header
 - All legal content in English
+- Page markers in format [PAGE:N] (e.g. [PAGE:1], [PAGE:2]) - these are important for PDF navigation
 
 CODING RULES:
 - To match non-ASCII: use exactly r'[^\x00-\x7F]'

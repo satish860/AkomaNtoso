@@ -1,5 +1,5 @@
 """Unified document extraction - orchestrates all extractors."""
-from typing import List, Optional, Callable
+from typing import List, Optional, Callable, Dict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pydantic import BaseModel
 
@@ -36,6 +36,7 @@ class ExtractedSection(BaseModel):
     """Section with nested subsections."""
     number: int
     heading: Optional[str] = None
+    page: Optional[int] = None  # PDF page number for navigation
     subsections: List[ExtractedSubSection] = []
 
 
@@ -45,6 +46,7 @@ class ExtractedChapter(BaseModel):
     title: str
     start_line: int
     end_line: int
+    page: Optional[int] = None  # PDF page number for navigation
     sections: List[ExtractedSection] = []
 
 
@@ -60,7 +62,8 @@ def extract_document(
     extract_subsections_flag: bool = True,
     on_progress: Optional[Callable[[str], None]] = None,
     parallel: bool = False,
-    max_workers: int = 3
+    max_workers: int = 3,
+    pdf_path: Optional[str] = None
 ) -> Document:
     """
     Extract full document structure using all extractors.
@@ -71,6 +74,7 @@ def extract_document(
         on_progress: Optional callback for progress updates
         parallel: Whether to extract chapters in parallel (default False)
         max_workers: Max parallel workers (default 3 to avoid rate limits)
+        pdf_path: Optional path to original PDF for page number extraction
 
     Returns:
         Document with metadata, hierarchy, and nested chapters/sections
@@ -82,6 +86,14 @@ def extract_document(
         if on_progress:
             with lock:
                 on_progress(msg)
+
+    # Extract page map from PDF if provided
+    page_map = {}
+    if pdf_path:
+        from src.extractor.pdf_extractor import extract_page_map
+        report("Extracting page numbers from PDF...")
+        page_map = extract_page_map(pdf_path)
+        report(f"  Found {len(page_map)} page mappings")
 
     # Step 1: Analyze structure to get hierarchy
     report("Step 1/4: Analyzing document structure...")
@@ -167,17 +179,25 @@ def extract_document(
                     # Some sections may not have subsections
                     pass
 
+            # Get section page from page_map
+            sec_page = page_map.get(f"section_{sec.number}")
+
             extracted_sections.append(ExtractedSection(
                 number=sec.number,
                 heading=sec.heading,
+                page=sec_page,
                 subsections=extracted_subsections
             ))
+
+        # Get chapter page from page_map
+        ch_page = page_map.get(f"CHAPTER {ch.number}")
 
         return ExtractedChapter(
             number=ch.number,
             title=ch.title,
             start_line=ch.start_line,
             end_line=ch.end_line,
+            page=ch_page,
             sections=extracted_sections
         )
 

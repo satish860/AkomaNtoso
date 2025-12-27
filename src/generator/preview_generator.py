@@ -1,4 +1,4 @@
-"""Generate HTML preview for side-by-side PDF comparison."""
+"""Generate HTML preview for side-by-side PDF comparison with page navigation."""
 import json
 from pathlib import Path
 from typing import Optional
@@ -32,6 +32,10 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
             color: #fff;
             padding: 20px;
             text-align: center;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }}
 
         .structure-panel {{
@@ -74,6 +78,18 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
         .chapter.open .chapter-content {{ display: block; }}
         .chapter.open .toggle {{ transform: rotate(90deg); }}
 
+        .page-badge {{
+            background: #3498db;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+            margin-left: 10px;
+        }}
+        .page-badge:hover {{
+            background: #2980b9;
+        }}
+
         .section {{
             border-bottom: 1px solid #eee;
             padding: 12px 15px;
@@ -90,7 +106,7 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
             color: #e74c3c;
             min-width: 30px;
         }}
-        .section-heading {{ color: #333; }}
+        .section-heading {{ color: #333; flex: 1; }}
 
         .subsections {{
             margin-top: 10px;
@@ -171,12 +187,19 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
             margin-bottom: 15px;
         }}
         .expand-all:hover {{ background: #2980b9; }}
+
+        .clickable {{
+            cursor: pointer;
+        }}
+        .clickable:hover {{
+            text-decoration: underline;
+        }}
     </style>
 </head>
 <body>
     <div class="container">
         <div class="pdf-panel">
-            {pdf_embed}
+            {pdf_viewer}
         </div>
         <div class="structure-panel">
             <div class="header">
@@ -196,9 +219,21 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
     </div>
 
     <script>
+        // PDF navigation using iframe
+        const pdfBasePath = '{pdf_path_js}';
+
+        function goToPage(num) {{
+            const iframe = document.getElementById('pdf-frame');
+            if (iframe && pdfBasePath) {{
+                iframe.src = pdfBasePath + '#page=' + num;
+            }}
+        }}
+
         // Toggle chapter
         document.querySelectorAll('.chapter-header').forEach(header => {{
-            header.addEventListener('click', () => {{
+            header.addEventListener('click', (e) => {{
+                // Don't toggle if clicking on page badge
+                if (e.target.classList.contains('page-badge')) return;
                 header.parentElement.classList.toggle('open');
             }});
         }});
@@ -206,8 +241,19 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
         // Toggle section
         document.querySelectorAll('.section-header').forEach(header => {{
             header.addEventListener('click', (e) => {{
+                // Don't toggle if clicking on page badge
+                if (e.target.classList.contains('page-badge')) return;
                 e.stopPropagation();
                 header.parentElement.classList.toggle('open');
+            }});
+        }});
+
+        // Page navigation from badges
+        document.querySelectorAll('.page-badge').forEach(badge => {{
+            badge.addEventListener('click', (e) => {{
+                e.stopPropagation();
+                const page = parseInt(badge.dataset.page);
+                if (page) goToPage(page);
             }});
         }});
 
@@ -274,11 +320,17 @@ def _generate_section_html(section) -> str:
     subsections_html = ''.join(_generate_subsection_html(s) for s in section.subsections)
     has_subsections = len(section.subsections) > 0
 
+    # Page badge if page number available
+    page_badge = ''
+    if section.page:
+        page_badge = f'<span class="page-badge" data-page="{section.page}">p.{section.page}</span>'
+
     return f'''
         <div class="section">
             <div class="section-header">
                 <span class="section-num">{section.number}.</span>
                 <span class="section-heading">{section.heading or 'Untitled'}</span>
+                {page_badge}
                 {f'<span style="color:#999;font-size:12px">({len(section.subsections)} subsections)</span>' if has_subsections else ''}
             </div>
             <div class="subsections">
@@ -292,10 +344,16 @@ def _generate_chapter_html(chapter) -> str:
     """Generate HTML for a chapter."""
     sections_html = ''.join(_generate_section_html(s) for s in chapter.sections)
 
+    # Page badge if page number available
+    page_badge = ''
+    if chapter.page:
+        page_badge = f'<span class="page-badge" data-page="{chapter.page}">p.{chapter.page}</span>'
+
     return f'''
         <div class="chapter">
             <div class="chapter-header">
                 <span class="chapter-title">Chapter {chapter.number}: {chapter.title}</span>
+                {page_badge}
                 <span class="toggle">&#9654;</span>
             </div>
             <div class="chapter-content">
@@ -319,11 +377,15 @@ def generate_preview(doc: Document, pdf_path: Optional[str] = None) -> str:
     # Generate chapters HTML
     chapters_html = ''.join(_generate_chapter_html(ch) for ch in doc.chapters)
 
-    # PDF embed
+    # PDF viewer HTML - use iframe with page parameter for navigation
     if pdf_path:
-        pdf_embed = f'<iframe src="{pdf_path}"></iframe>'
+        pdf_viewer = f'''
+            <iframe id="pdf-frame" src="{pdf_path}#page=1"></iframe>
+        '''
+        pdf_path_js = pdf_path.replace('\\', '/')
     else:
-        pdf_embed = '<div class="no-pdf"><p>No PDF provided</p><p>Use --pdf flag to embed original PDF</p></div>'
+        pdf_viewer = '<div class="no-pdf"><p>No PDF provided</p><p>Use --pdf flag to embed original PDF</p></div>'
+        pdf_path_js = ''
 
     # Count stats
     section_count = sum(len(ch.sections) for ch in doc.chapters)
@@ -341,7 +403,8 @@ def generate_preview(doc: Document, pdf_path: Optional[str] = None) -> str:
         chapter_count=len(doc.chapters),
         section_count=section_count,
         subsection_count=subsection_count,
-        pdf_embed=pdf_embed,
+        pdf_viewer=pdf_viewer,
+        pdf_path_js=pdf_path_js,
         chapters_html=chapters_html
     )
 
