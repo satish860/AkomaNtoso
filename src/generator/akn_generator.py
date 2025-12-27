@@ -125,13 +125,42 @@ def _generate_meta(act: etree.Element, doc: Document) -> None:
     _generate_frbr_manifestation(identification, doc)
 
 
+def _generate_subclause(clause_elem: etree.Element, sec_num: int, clause_letter: str, subclause) -> None:
+    """Generate subclause element."""
+    eid = f"sec_{sec_num}__clause_{clause_letter}__subclause_{subclause.numeral}"
+    subclause_elem = _sub(clause_elem, "paragraph", eId=eid)
+    _sub(subclause_elem, "num", text=f"({subclause.numeral})")
+    content = _sub(subclause_elem, "content")
+    _sub(content, "p", text=subclause.content)
+
+
+def _generate_clause(subsec_elem: etree.Element, sec_num: int, subsec_num: int, clause) -> None:
+    """Generate clause element."""
+    eid = f"sec_{sec_num}__subsec_{subsec_num}__clause_{clause.letter}"
+    clause_elem = _sub(subsec_elem, "paragraph", eId=eid)
+    _sub(clause_elem, "num", text=f"({clause.letter})")
+    content = _sub(clause_elem, "content")
+    _sub(content, "p", text=clause.content)
+
+    # Generate subclauses
+    for subclause in clause.subclauses:
+        _generate_subclause(clause_elem, sec_num, clause.letter, subclause)
+
+
 def _generate_subsection(section: etree.Element, sec_num: int, subsec) -> None:
     """Generate subsection element."""
     eid = f"sec_{sec_num}__subsec_{subsec.number}"
     subsec_elem = _sub(section, "subsection", eId=eid)
     _sub(subsec_elem, "num", text=f"({subsec.number})")
-    content = _sub(subsec_elem, "content")
-    _sub(content, "p", text=subsec.content)
+
+    # Add content if present
+    if subsec.content:
+        content = _sub(subsec_elem, "content")
+        _sub(content, "p", text=subsec.content)
+
+    # Generate clauses
+    for clause in subsec.clauses:
+        _generate_clause(subsec_elem, sec_num, subsec.number, clause)
 
 
 def _generate_section(chapter: etree.Element, sec) -> None:

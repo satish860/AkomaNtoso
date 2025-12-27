@@ -215,7 +215,9 @@ def sections(text_path: str):
 @click.argument('text_path', type=click.Path(exists=True))
 @click.option('--output', '-o', type=click.Path(), help='Output XML file path')
 @click.option('--quick', '-q', is_flag=True, help='Skip subsection extraction for faster processing')
-def generate(text_path: str, output: str, quick: bool):
+@click.option('--parallel', '-p', is_flag=True, help='Extract chapters in parallel (faster but may hit rate limits)')
+@click.option('--workers', '-w', default=3, help='Number of parallel workers (default: 3)')
+def generate(text_path: str, output: str, quick: bool, parallel: bool, workers: int):
     """Generate Akoma Ntoso XML from cleaned text file."""
     from src.parser.document_extractor import extract_document
     from src.generator.akn_generator import generate_akn
@@ -223,6 +225,8 @@ def generate(text_path: str, output: str, quick: bool):
     console.print(f"[bold blue]Generating AKN XML:[/] {text_path}")
     if quick:
         console.print("[yellow]Quick mode: skipping subsection extraction[/]")
+    if parallel:
+        console.print(f"[yellow]Parallel mode: {workers} workers[/]")
 
     text = Path(text_path).read_text(encoding='utf-8')
 
@@ -231,7 +235,13 @@ def generate(text_path: str, output: str, quick: bool):
         console.print(f"[dim]{msg}[/]")
 
     # Extract document structure with progress
-    doc = extract_document(text, extract_subsections_flag=not quick, on_progress=on_progress)
+    doc = extract_document(
+        text,
+        extract_subsections_flag=not quick,
+        on_progress=on_progress,
+        parallel=parallel,
+        max_workers=workers
+    )
 
     console.print(f"\n[green]Extracted: {len(doc.chapters)} chapters, {sum(len(ch.sections) for ch in doc.chapters)} sections[/]")
 
@@ -295,13 +305,63 @@ def full_extract(text_path: str, save: str):
 
 
 @cli.command()
+@click.argument('text_path', type=click.Path(exists=True))
+@click.option('--pdf', '-p', type=click.Path(exists=True), help='Original PDF for side-by-side view')
+@click.option('--output', '-o', type=click.Path(), default='output/preview.html', help='Output HTML file')
+@click.option('--quick', '-q', is_flag=True, help='Quick extraction (sections only)')
+@click.option('--open', 'open_browser', is_flag=True, help='Open in browser after generating')
+def preview(text_path: str, pdf: str, output: str, quick: bool, open_browser: bool):
+    """Generate HTML preview with side-by-side PDF comparison."""
+    import webbrowser
+    from src.parser.document_extractor import extract_document
+    from src.generator.preview_generator import generate_preview
+
+    console.print(f"[bold blue]Generating preview:[/] {text_path}")
+
+    text = Path(text_path).read_text(encoding='utf-8')
+
+    # Progress callback
+    def on_progress(msg: str):
+        console.print(f"[dim]{msg}[/]")
+
+    # Extract document
+    with console.status("[bold green]Extracting document..."):
+        doc = extract_document(text, extract_subsections_flag=not quick, on_progress=on_progress)
+
+    # Generate preview HTML
+    console.print("[bold green]Generating HTML preview...[/]")
+
+    # Convert PDF path to relative path for HTML
+    pdf_rel = None
+    if pdf:
+        pdf_abs = Path(pdf).resolve()
+        output_abs = Path(output).resolve()
+        try:
+            pdf_rel = str(pdf_abs.relative_to(output_abs.parent))
+        except ValueError:
+            pdf_rel = str(pdf_abs)
+
+    html = generate_preview(doc, pdf_path=pdf_rel)
+
+    # Save
+    Path(output).parent.mkdir(parents=True, exist_ok=True)
+    Path(output).write_text(html, encoding='utf-8')
+    console.print(f"\n[bold green]Saved to:[/] {output}")
+
+    # Open in browser
+    if open_browser:
+        webbrowser.open(f'file://{Path(output).resolve()}')
+        console.print("[dim]Opened in browser[/]")
+
+
+@cli.command()
 @click.argument('pdf_path', type=click.Path(exists=True))
 @click.option('--output', '-o', type=click.Path(), help='Output XML file path')
 def convert(pdf_path: str, output: str):
     """Convert PDF to Akoma Ntoso XML (placeholder)."""
     console.print(f"[bold blue]Converting:[/] {pdf_path}")
-    console.print("[yellow]Note: Full conversion not yet implemented (Sprint 3)[/]")
-    console.print("[dim]Use 'generate' command for full AKN XML generation[/]")
+    console.print("[yellow]Note: Use 'generate' command for AKN XML generation[/]")
+    console.print("[dim]Or use 'preview' command for side-by-side verification[/]")
 
 
 if __name__ == '__main__':
