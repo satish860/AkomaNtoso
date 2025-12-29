@@ -1,8 +1,10 @@
 """Level-by-level hierarchy extraction using LLM with line numbers."""
 import json
+import time
 from typing import List, Optional
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pydantic import BaseModel
+from anthropic import RateLimitError
 
 from src.models import LineInfo, Segment, LevelExtraction
 from src.extractor.line_numbered_extractor import (
@@ -82,44 +84,55 @@ TEXT (lines {start_line} to {end_line}):
 """
 
 
-def _call_llm_for_segments(prompt: str) -> List[Segment]:
-    """Make LLM call and return segments."""
+def _call_llm_for_segments(prompt: str, max_retries: int = 5) -> List[Segment]:
+    """Make LLM call and return segments with retry logic for rate limits."""
     client = get_client()
     model = get_model()
 
-    response = client.beta.messages.create(
-        model=model,
-        max_tokens=8000,
-        betas=["structured-outputs-2025-11-13"],
-        messages=[
-            {"role": "user", "content": prompt}
-        ],
-        output_format={
-            "type": "json_schema",
-            "schema": {
-                "type": "object",
-                "properties": {
-                    "segments": {
-                        "type": "array",
-                        "items": {
-                            "type": "object",
-                            "properties": {
-                                "type": {"type": "string"},
-                                "number": {"type": "string"},
-                                "title": {"type": ["string", "null"]},
-                                "start_line": {"type": "integer"},
-                                "end_line": {"type": "integer"}
-                            },
-                            "required": ["type", "number", "title", "start_line", "end_line"],
-                            "additionalProperties": False
-                        }
+    for attempt in range(max_retries):
+        try:
+            response = client.beta.messages.create(
+                model=model,
+                max_tokens=8000,
+                betas=["structured-outputs-2025-11-13"],
+                messages=[
+                    {"role": "user", "content": prompt}
+                ],
+                output_format={
+                    "type": "json_schema",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "segments": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "type": {"type": "string"},
+                                        "number": {"type": "string"},
+                                        "title": {"type": ["string", "null"]},
+                                        "start_line": {"type": "integer"},
+                                        "end_line": {"type": "integer"}
+                                    },
+                                    "required": ["type", "number", "title", "start_line", "end_line"],
+                                    "additionalProperties": False
+                                }
+                            }
+                        },
+                        "required": ["segments"],
+                        "additionalProperties": False
                     }
-                },
-                "required": ["segments"],
-                "additionalProperties": False
-            }
-        }
-    )
+                }
+            )
+            break  # Success, exit retry loop
+        except RateLimitError as e:
+            if attempt < max_retries - 1:
+                # Exponential backoff: 10s, 20s, 40s, 80s, 160s
+                wait_time = 10 * (2 ** attempt)
+                print(f"    Rate limited, waiting {wait_time}s before retry ({attempt + 1}/{max_retries})...")
+                time.sleep(wait_time)
+            else:
+                raise  # Re-raise on final attempt
 
     result = json.loads(response.content[0].text)
     return [Segment(**seg) for seg in result.get("segments", [])]

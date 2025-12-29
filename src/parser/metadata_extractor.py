@@ -1,7 +1,9 @@
 """Metadata extraction using Claude structured outputs."""
 import json
+import time
 from typing import Optional
 from pydantic import BaseModel
+from anthropic import RateLimitError
 from .llm_client import get_client, get_model
 
 
@@ -123,7 +125,7 @@ def extract_metadata(text: str) -> ActMetadata:
     return ActMetadata(**result)
 
 
-def extract_document_metadata(text: str) -> DocumentMetadata:
+def extract_document_metadata(text: str, max_retries: int = 5) -> DocumentMetadata:
     """
     Extract metadata from any legal document (multi-jurisdiction).
 
@@ -131,6 +133,7 @@ def extract_document_metadata(text: str) -> DocumentMetadata:
 
     Args:
         text: Document text (first ~4000 chars used)
+        max_retries: Maximum retries for rate limit errors
 
     Returns:
         DocumentMetadata with title, number, year, date_enacted, country, doc_type, language
@@ -141,34 +144,44 @@ def extract_document_metadata(text: str) -> DocumentMetadata:
     # Only need beginning of document for metadata
     text_sample = text[:4000]
 
-    response = client.beta.messages.create(
-        model=model,
-        max_tokens=1000,
-        betas=["structured-outputs-2025-11-13"],
-        messages=[
-            {
-                "role": "user",
-                "content": EXTRACT_DOCUMENT_METADATA_PROMPT.format(text=text_sample)
-            }
-        ],
-        output_format={
-            "type": "json_schema",
-            "schema": {
-                "type": "object",
-                "properties": {
-                    "title": {"type": "string"},
-                    "number": {"type": "string"},
-                    "year": {"type": "integer"},
-                    "date_enacted": {"type": ["string", "null"]},
-                    "country": {"type": "string"},
-                    "doc_type": {"type": "string"},
-                    "language": {"type": "string"}
-                },
-                "required": ["title", "number", "year", "date_enacted", "country", "doc_type", "language"],
-                "additionalProperties": False
-            }
-        }
-    )
+    for attempt in range(max_retries):
+        try:
+            response = client.beta.messages.create(
+                model=model,
+                max_tokens=1000,
+                betas=["structured-outputs-2025-11-13"],
+                messages=[
+                    {
+                        "role": "user",
+                        "content": EXTRACT_DOCUMENT_METADATA_PROMPT.format(text=text_sample)
+                    }
+                ],
+                output_format={
+                    "type": "json_schema",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "title": {"type": "string"},
+                            "number": {"type": "string"},
+                            "year": {"type": "integer"},
+                            "date_enacted": {"type": ["string", "null"]},
+                            "country": {"type": "string"},
+                            "doc_type": {"type": "string"},
+                            "language": {"type": "string"}
+                        },
+                        "required": ["title", "number", "year", "date_enacted", "country", "doc_type", "language"],
+                        "additionalProperties": False
+                    }
+                }
+            )
+            break  # Success
+        except RateLimitError:
+            if attempt < max_retries - 1:
+                wait_time = 10 * (2 ** attempt)
+                print(f"  Rate limited, waiting {wait_time}s before retry...")
+                time.sleep(wait_time)
+            else:
+                raise
 
     result = json.loads(response.content[0].text)
     return DocumentMetadata(**result)

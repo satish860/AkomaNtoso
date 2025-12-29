@@ -27,43 +27,26 @@ export ANTHROPIC_API_KEY=your-key-here  # Linux/Mac
 
 ## Quick Start
 
-### 1. Extract Hierarchy from PDF
+### Convert PDF to AKN XML (One Command)
 
 ```bash
-python scripts/extract_full_document.py
+# Auto-detects metadata (title, country, year, etc.)
+python scripts/pdf_to_akn.py data/your_document.pdf
+
+# With manual metadata
+python scripts/pdf_to_akn.py data/irish_si_607.pdf \
+    --title "European Union (Markets in Crypto-Assets) Regulations 2024" \
+    --country ie --doc-type regulation --year 2024 --number 607
 ```
 
-This extracts the document structure and saves to `output/dpdp_act_hierarchy.json`.
+This will:
+1. Extract text from PDF
+2. Auto-detect metadata (or use provided)
+3. Extract document hierarchy (parallel LLM calls)
+4. Generate AKN XML
+5. Validate against AKN 3.0 schema
 
-### 2. Generate Akoma Ntoso XML
-
-```python
-from src.generator.akn_generator import generate_akn_from_json_file
-
-generate_akn_from_json_file(
-    'output/dpdp_act_hierarchy.json',
-    'output/dpdp_act.xml',
-    {
-        'title': 'Digital Personal Data Protection Act, 2023',
-        'year': 2023,
-        'act_number': 22,
-        'date_enacted': '2023-08-11'
-    }
-)
-```
-
-### 3. Validate Against Schema
-
-```python
-from lxml import etree
-import os
-
-os.chdir('schemas')
-schema = etree.XMLSchema(etree.parse('akomantoso30.xsd'))
-os.chdir('..')
-doc = etree.parse('output/dpdp_act.xml')
-print('Valid!' if schema.validate(doc) else schema.error_log)
-```
+Output: `output/<filename>.xml` and `output/<filename>_hierarchy.json`
 
 ## Architecture
 
@@ -100,7 +83,8 @@ src/
     segment.py                  # Segment model
 
 scripts/
-  extract_full_document.py      # Full extraction pipeline
+  pdf_to_akn.py                 # Complete pipeline: PDF -> JSON -> XML
+  extract_full_document.py      # JSON extraction only
 
 tests/                          # pytest tests
 ```
@@ -153,7 +137,22 @@ Output: Schema-valid Akoma Ntoso XML
 | Environment Variable | Description |
 |---------------------|-------------|
 | `ANTHROPIC_API_KEY` | Claude API key (required) |
-| `ANTHROPIC_MODEL` | Model to use (default: claude-sonnet-4-20250514) |
+| `ANTHROPIC_ENDPOINT` | API endpoint URL (required) |
+| `ANTHROPIC_DEPLOYMENT` | Model deployment name (default: claude-sonnet-4-5) |
+
+## Rate Limits
+
+The tool uses parallel LLM calls for faster extraction. If you hit rate limits:
+
+```bash
+# Reduce parallel workers (default: 3)
+python scripts/pdf_to_akn.py data/document.pdf --workers 2
+
+# Or use sequential mode (slower but no rate limits)
+python scripts/pdf_to_akn.py data/document.pdf --sequential
+```
+
+The tool includes automatic retry with exponential backoff (10s, 20s, 40s...) for rate limit errors.
 
 ## Running Tests
 

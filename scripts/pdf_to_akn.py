@@ -82,8 +82,8 @@ Examples:
     # Processing options
     parser.add_argument("--max-depth", type=int, default=10,
                         help="Maximum hierarchy depth (default: 10)")
-    parser.add_argument("--workers", type=int, default=5,
-                        help="Number of parallel workers (default: 5)")
+    parser.add_argument("--workers", type=int, default=3,
+                        help="Number of parallel workers (default: 3, reduce if rate limited)")
     parser.add_argument("--sequential", action="store_true",
                         help="Disable parallel processing")
     parser.add_argument("--json-only", action="store_true",
