@@ -19,19 +19,29 @@ DISCOVER_CHILDREN_PROMPT = """Analyze this legal document section and find its I
 The text has line numbers prefixed (e.g., "  10| CHAPTER I").
 
 Find the immediate structural children. These could be:
+- Parts (PART I, PART II, etc.)
 - Chapters (CHAPTER I, II, III)
-- Sections (1., 2., 3. or Section 1, Section 2)
+- Sections or Regulations (1., 2., 3., etc.)
 - Subsections ((1), (2), (3))
 - Clauses ((a), (b), (c))
 - Sub-clauses ((i), (ii), (iii))
-- Paragraphs, Rules, Regulations, Articles, etc.
+- Paragraphs, Rules, Articles, etc.
 - Definitions (in a definitions section)
 - Any other structural division
 
+IMPORTANT - Recognizing Regulations vs Subsections:
+- In Statutory Instruments (S.I.) and Rules, numbered items (1., 2., 3., etc.) are REGULATIONS, not sections
+- Pattern "X. (Y)" means Regulation X with subsection (Y) as its CHILD
+  Example: "4. (1) The Bank shall..." = Regulation 4 starting here, with (1) as its first subsection
+  Example: "21. The Act is amended..." = Regulation 21 (no subsections)
+- When you see "X. (Y)", the immediate child is Regulation X (not subsection Y)
+- Subsections (1), (2), (3) are children OF regulations, not siblings
+- Look for the regulation number BEFORE any parenthesized subsection number
+
 For each immediate child found, provide:
-- type: What kind of element is it (e.g., "chapter", "section", "subsection", "clause", "definition")
+- type: What kind of element is it (e.g., "part", "chapter", "regulation", "section", "subsection", "clause", "definition")
 - number: The identifier (e.g., "I", "1", "(1)", "(a)", "(i)")
-- title: The heading text if present, null if none
+- title: The heading text if present (often appears on line before the number), null if none
 - start_line: Line number where this element STARTS
 - end_line: Line number where this element ENDS
 
@@ -41,6 +51,7 @@ Rules:
 - Children must not overlap
 - Children must be in document order
 - If this is leaf content with no subdivisions, return empty segments list
+- For S.I./Rules: use "regulation" for numbered items (1., 2., 3.), not "section"
 
 TEXT (lines {start_line} to {end_line}):
 {text_slice}

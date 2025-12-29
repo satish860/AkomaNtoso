@@ -368,6 +368,9 @@ def generate_akn_from_hierarchy(
     year = metadata.get("year", date.today().year)
     act_number = metadata.get("act_number", 1)
     date_enacted = metadata.get("date_enacted", f"{year}-01-01")
+    country = metadata.get("country", "in")  # ISO 3166-1 alpha-2: in=India, ie=Ireland, gb=UK
+    doc_type = metadata.get("doc_type", "act")  # act, bill, regulation, etc.
+    language = metadata.get("language", "eng")  # ISO 639-2: eng=English
 
     # Normalize date
     if date_enacted and not re.match(r'^\d{4}-\d{2}-\d{2}$', date_enacted):
@@ -384,29 +387,32 @@ def generate_akn_from_hierarchy(
     meta_elem = _sub(act, "meta")
     identification = _sub(meta_elem, "identification", source="#source")
 
+    # FRBR URI base
+    uri_base = f"/{country}/{doc_type}/{year}/{act_number}"
+
     # FRBRWork - order: FRBRthis, FRBRuri, FRBRdate, FRBRauthor, FRBRcountry, FRBRnumber, FRBRname
     work = _sub(identification, "FRBRWork")
-    _sub(work, "FRBRthis", value=f"/in/act/{year}/{act_number}/main")
-    _sub(work, "FRBRuri", value=f"/in/act/{year}/{act_number}")
+    _sub(work, "FRBRthis", value=f"{uri_base}/main")
+    _sub(work, "FRBRuri", value=uri_base)
     _sub(work, "FRBRdate", date=date_enacted, name="enacted")
     _sub(work, "FRBRauthor", href="#parliament")
-    _sub(work, "FRBRcountry", value="in")
+    _sub(work, "FRBRcountry", value=country)
     _sub(work, "FRBRnumber", value=str(act_number))
     _sub(work, "FRBRname", value=title)
 
     # FRBRExpression - order: FRBRthis, FRBRuri, FRBRdate, FRBRauthor, FRBRlanguage
     expr = _sub(identification, "FRBRExpression")
-    _sub(expr, "FRBRthis", value=f"/in/act/{year}/{act_number}/eng@{date_enacted}/main")
-    _sub(expr, "FRBRuri", value=f"/in/act/{year}/{act_number}/eng@{date_enacted}")
+    _sub(expr, "FRBRthis", value=f"{uri_base}/{language}@{date_enacted}/main")
+    _sub(expr, "FRBRuri", value=f"{uri_base}/{language}@{date_enacted}")
     _sub(expr, "FRBRdate", date=date_enacted, name="publication")
     _sub(expr, "FRBRauthor", href="#parliament")
-    _sub(expr, "FRBRlanguage", language="eng")
+    _sub(expr, "FRBRlanguage", language=language)
 
     # FRBRManifestation - order: FRBRthis, FRBRuri, FRBRdate, FRBRauthor
     today = date.today().isoformat()
     manif = _sub(identification, "FRBRManifestation")
-    _sub(manif, "FRBRthis", value=f"/in/act/{year}/{act_number}/eng@{date_enacted}/main.xml")
-    _sub(manif, "FRBRuri", value=f"/in/act/{year}/{act_number}/eng@{date_enacted}/main.xml")
+    _sub(manif, "FRBRthis", value=f"{uri_base}/{language}@{date_enacted}/main.xml")
+    _sub(manif, "FRBRuri", value=f"{uri_base}/{language}@{date_enacted}/main.xml")
     _sub(manif, "FRBRdate", date=today, name="transform")
     _sub(manif, "FRBRauthor", href="#converter")
 

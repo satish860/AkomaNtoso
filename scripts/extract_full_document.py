@@ -1,6 +1,15 @@
-"""Script to extract full document hierarchy with progress output."""
+"""Script to extract full document hierarchy with progress output.
+
+Usage:
+    python scripts/extract_full_document.py [pdf_path]
+
+Examples:
+    python scripts/extract_full_document.py data/irish_si_607.pdf
+    python scripts/extract_full_document.py  # Uses default DPDP Act
+"""
 import sys
 import time
+import argparse
 from pathlib import Path
 
 # Add project root to path
@@ -20,13 +29,25 @@ def count_nodes(nodes):
 
 
 def main():
-    pdf_path = "data/2bf1f0e9f04e6fb4f8fef35e82c42aa5.pdf"
-    max_depth = 10  # High limit - extraction stops naturally when no more children
-    parallel = True  # Enable parallel extraction
-    max_workers = 5  # Number of parallel LLM calls
+    parser = argparse.ArgumentParser(description="Extract document hierarchy from PDF")
+    parser.add_argument("pdf_path", nargs="?", default="data/2bf1f0e9f04e6fb4f8fef35e82c42aa5.pdf",
+                        help="Path to PDF file (default: DPDP Act)")
+    parser.add_argument("--max-depth", type=int, default=10, help="Maximum hierarchy depth")
+    parser.add_argument("--workers", type=int, default=5, help="Number of parallel workers")
+    parser.add_argument("--sequential", action="store_true", help="Disable parallel processing")
+    args = parser.parse_args()
+
+    pdf_path = args.pdf_path
+    max_depth = args.max_depth
+    parallel = not args.sequential
+    max_workers = args.workers
+
+    # Derive output filename from input
+    pdf_name = Path(pdf_path).stem
+    output_path = Path(f"output/{pdf_name}_hierarchy.json")
 
     print("=" * 60)
-    print("DPDP Act - Level-by-Level Hierarchy Extraction")
+    print(f"Hierarchy Extraction: {Path(pdf_path).name}")
     print("=" * 60)
     print()
 
@@ -90,7 +111,6 @@ def main():
     print_hierarchy(nodes)
 
     # Export to JSON
-    output_path = Path("output/dpdp_act_hierarchy.json")
     output_path.parent.mkdir(exist_ok=True)
 
     # Convert nodes to JSON-serializable format
