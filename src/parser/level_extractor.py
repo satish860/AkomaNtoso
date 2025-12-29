@@ -417,6 +417,7 @@ def extract_level_by_level(
     max_depth: int = 10,
     parallel: bool = False,
     max_workers: int = 5,
+    call_delay: float = 1.0,
     on_level_complete: Optional[callable] = None,
     on_progress: Optional[callable] = None
 ) -> List[HierarchyNode]:
@@ -431,6 +432,7 @@ def extract_level_by_level(
         max_depth: Maximum levels to extract
         parallel: Whether to process parents in parallel (default False)
         max_workers: Max parallel workers (default 5)
+        call_delay: Delay in seconds between LLM calls (default 1.0)
         on_level_complete: Callback after each level: fn(level, nodes)
         on_progress: Callback for individual extractions
 
@@ -497,12 +499,15 @@ def extract_level_by_level(
 
             with ThreadPoolExecutor(max_workers=max_workers) as executor:
                 futures = {executor.submit(process_parent, p): p for p in parents_to_process}
+                completed_count = 0
+                total_parents = len(parents_to_process)
 
                 for future in as_completed(futures):
                     parent, child_segments = future.result()
+                    completed_count += 1
 
                     if on_progress:
-                        on_progress(f"  {parent.type} {parent.number}: {len(child_segments)} children")
+                        on_progress(f"  [{completed_count}/{total_parents}] {parent.type} {parent.number}: {len(child_segments)} children")
 
                     for seg in child_segments:
                         # Skip if child has same range as parent (LLM returned parent as child)
@@ -523,11 +528,16 @@ def extract_level_by_level(
                         nodes_at_next_level.append(child_node)
         else:
             # Sequential extraction
-            for parent in parents_to_process:
+            total_parents = len(parents_to_process)
+            for i, parent in enumerate(parents_to_process):
                 if on_progress:
-                    on_progress(f"  {parent.type} {parent.number}: lines {parent.start_line}-{parent.end_line}")
+                    on_progress(f"  [{i+1}/{total_parents}] {parent.type} {parent.number}: lines {parent.start_line}-{parent.end_line}")
 
                 child_segments = discover_children(line_infos, parent.start_line, parent.end_line)
+
+                # Add delay between calls (skip after last call)
+                if call_delay > 0 and i < len(parents_to_process) - 1:
+                    time.sleep(call_delay)
 
                 for seg in child_segments:
                     # Skip if child has same range as parent (LLM returned parent as child)

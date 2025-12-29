@@ -1,0 +1,2110 @@
+{
+  "source_pdf": "data/irish_si_607.pdf",
+  "total_lines": 1083,
+  "total_nodes": 187,
+  "extraction_time_seconds": 146.8,
+  "hierarchy": [
+    {
+      "level": 1,
+      "type": "part",
+      "number": "I",
+      "title": "PRELIMINARY AND GENERAL",
+      "start_line": 17,
+      "end_line": 55,
+      "page": 2,
+      "content": null,
+      "children": [
+        {
+          "level": 2,
+          "type": "regulation",
+          "number": "1",
+          "title": "Citation and commencement",
+          "start_line": 19,
+          "end_line": 22,
+          "page": 2,
+          "content": "Citation and commencement\n1. (1) These Regulations may be cited as the European Union (Markets in\nCrypto-Assets) Regulations 2024.\n(2) These Regulations shall come into operation on 8 November 2024.",
+          "children": []
+        },
+        {
+          "level": 2,
+          "type": "regulation",
+          "number": "2",
+          "title": "Interpretation",
+          "start_line": 23,
+          "end_line": 55,
+          "page": 2,
+          "content": null,
+          "children": [
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(1)",
+              "title": null,
+              "start_line": 24,
+              "end_line": 52,
+              "page": 2,
+              "content": "2. (1) In these Regulations\nAct of 1942 means the Central Bank Act 1942 (No. 22 of 1942);\nBank means the Central Bank of Ireland;\ncontravention includes, in relation to any provision of the MiCA Regulation,\na failure to comply with that provision, and also includes\n(a)\nattempting to commit a contravention,\n(b)\naiding, abetting, counselling or procuring a person to commit a\ncontravention,\n(c)\ninducing, or attempting to induce, a person (whether by threats or\npromises or otherwise) to commit a contravention,\n(d)\nbeing (directly or indirectly) knowingly concerned in, or a party\nto, a contravention, and\n(e)\nconspiring with others to commit a contravention;\nCourt means the High Court;\nenactment has the same meaning as it has in the Interpretation Act 2005 (No.\n23 of 2005);\n1 OJ No. L 150, 9.6.2023, p.40\nNotice of the making of this Statutory Instrument was published in\nIris Oifigiil of 12th November, 2024.\n[607]  3\nMiCA Regulation means Regulation (EU) No. 2023/1114 of the European\nParliament and of the Council of 31 May 20232 on markets in crypto-assets, and\namending Regulations (EU) No. 1093/2010 and (EU) No. 1095/2010 and\nDirectives 2013/36/EU and (EU) 2019/1937.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(2)",
+              "title": null,
+              "start_line": 53,
+              "end_line": 55,
+              "page": 3,
+              "content": "(2) A word or expression which is used in these Regulations and is also used\nin the MiCA Regulation has, unless the context otherwise requires, the same\nmeaning in these Regulations as it has in the MiCA Regulation.",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "type": "part",
+      "number": "II",
+      "title": "COMPETENT AUTHORITY",
+      "start_line": 56,
+      "end_line": 61,
+      "page": 3,
+      "content": null,
+      "children": [
+        {
+          "level": 2,
+          "type": "regulation",
+          "number": "3",
+          "title": "Designation of Bank as competent authority",
+          "start_line": 58,
+          "end_line": 61,
+          "page": 3,
+          "content": "Designation of Bank as competent authority\n3.\nThe Bank is designated as the competent authority in the State for the\npurpose of Article 93(1) of the MiCA Regulation.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "type": "part",
+      "number": "III",
+      "title": "POWERS OF BANK",
+      "start_line": 62,
+      "end_line": 327,
+      "page": 3,
+      "content": null,
+      "children": [
+        {
+          "level": 2,
+          "type": "regulation",
+          "number": "4",
+          "title": "Powers of Bank",
+          "start_line": 64,
+          "end_line": 283,
+          "page": 3,
+          "content": null,
+          "children": [
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(1)",
+              "title": null,
+              "start_line": 65,
+              "end_line": 238,
+              "page": 3,
+              "content": "4. (1) The Bank shall have the following supervisory and investigative\npowers for the purpose of performing its duties under Titles II to VI of the MiCA\nRegulation:\n(a)\nto require any person to provide information and documents\nwhich the Bank considers could be relevant for the performance\nof its duties;\n(b)\nto suspend, or to require a crypto-asset service provider to\nsuspend, the provision of crypto-asset services for a maximum of\n30 consecutive working days on any single occasion where there\nare reasonable grounds for suspecting that any provision of the\nMiCA Regulation has been infringed;\n(c)\nto prohibit the provision of crypto-asset services where it finds\nthat any provision of the MiCA Regulation has been infringed;\n(d)\nto disclose, or to require a crypto-asset servicer provider to\ndisclose, all material information which might have an effect on\nthe provision of the crypto-asset services concerned, in order to\nensure the protection of the interests of clients, in particular retail\nholders, or the smooth operation of the market;\n(e)\nto make public the fact that a crypto-asset service provider fails\nto fulfil its obligations;\n2 OJ No. L 150, 9.6.2023, p.40\n4  [607]\n(f)\nto suspend, or to require a crypto-asset service provider to\nsuspend, the provision of crypto-asset services where the Bank\nconsiders that the crypto-asset service providers situation is such\nthat the provision of the crypto-asset service would be detrimental\nto the interests of clients, in particular retail holders;\n(g)\nto require the transfer of existing contracts to another crypto-asset\nservice provider in cases where a crypto-asset service providers\nauthorisation is withdrawn in accordance with Article 64 of the\nMiCA Regulation, subject to the agreement of the clients and the\ncrypto-asset service provider to which the contracts are to be\ntransferred;\n(h)\nwhere there is a reason to assume that a person is providing\ncrypto-asset services without authorisation, to order the\nimmediate cessation of the activity without prior warning or\nimposition of a deadline;\n(i)\nto require offerors, persons seeking admission to trading of\ncrypto-assets, or issuers of asset-referenced tokens or e-money\ntokens to amend their crypto-asset white paper or further amend\ntheir modified crypto-asset white paper, where the Bank finds that\nthe crypto-asset white paper or the modified crypto-asset white\npaper does not contain the information required by Article 6, 19\nor 51 of the MiCA Regulation;\n(j)\nto require offerors, persons seeking admission to trading of\ncrypto-assets, or issuers of asset-referenced tokens or e-money\ntokens, to amend their marketing communications, where the\nBank finds that the marketing communications do not comply\nwith the requirements set out in Article 7, 29 or 53 of the MiCA\nRegulation;\n(k)\nto require offerors, persons seeking admission to trading of\ncrypto-assets, or issuers of asset-referenced tokens or e-money\ntokens, to include additional information in their crypto-asset\nwhite papers, where necessary for financial stability or the\nprotection of the interests of the holders of crypto-assets, in\nparticular retail holders;\n(l)\nto suspend an offer to the public or an admission to trading of\ncrypto-assets for a maximum of 30 consecutive working days on\nany single occasion where there are reasonable grounds for\nsuspecting that any provision of the MiCA Regulation has been\ninfringed;\n(m) to prohibit an offer to the public or an admission to trading of\ncrypto-assets where the Bank finds that any provision of the\nMiCA Regulation has been infringed or where there are\nreasonable grounds for suspecting that any such provision will be\ninfringed;\n(n)\nto suspend, or require a crypto-asset service provider operating a\ntrading platform for crypto-assets to suspend, trading of the\ncrypto-assets for a maximum of 30 consecutive working days on\n[607]  5\nany single occasion where there are reasonable grounds for\nsuspecting that any provision of the MiCA Regulation has been\ninfringed;\n(o)\nto prohibit trading of crypto-assets on a trading platform for\ncrypto-assets where the Bank finds that any provision of the\nMiCA Regulation has been infringed or where there are\nreasonable grounds for suspecting that any such provision will be\ninfringed;\n(p)\nto suspend or prohibit marketing communications where there are\nreasonable grounds for suspecting that any provision of the MiCA\nRegulation has been infringed;\n(q)\nto require offerors, persons seeking admission to trading of\ncrypto-assets, issuers of asset-referenced tokens or e-money\ntokens or relevant crypto-asset service providers to cease or\nsuspend marketing communications for a maximum of 30\nconsecutive working days on any single occasion where there are\nreasonable grounds for suspecting that any provision of the MiCA\nRegulation has been infringed;\n(r)\nto make public the fact that an offeror, a person seeking admission\nto trading of a crypto-asset or an issuer of an asset-referenced\ntoken or e-money token, fails to fulfil its obligations under the\nMiCA Regulation;\n(s)\nto disclose, or to require the offeror, the person seeking admission\nto trading of a crypto-asset or the issuer of the asset-referenced\ntoken or e-money token, to disclose all material information\nwhich may have an effect on the assessment of the crypto-asset\noffered to the public or admitted to trading in order to ensure the\nprotection of the interests of holders of crypto-assets, in particular\nretail holders, or the smooth operation of the market;\n(t)\nto suspend, or require the relevant crypto-asset service provider\noperating the trading platform for crypto-assets to suspend, the\ncrypto-assets from trading where the Bank considers that the\nsituation of the offeror, the person seeking admission to trading\nof a crypto-asset or the issuer of an asset-referenced token or an\ne-money token is such that trading would be detrimental to the\ninterests of the holders of crypto-assets, in particular retail\nholders;\n(u)\nwhere there is a reason to assume that a person is issuing asset-\nreferenced tokens or e-money tokens without authorisation or a\nperson is offering or seeking admission to trading of crypto-assets\nother than asset-referenced tokens or e-money tokens without a\ncrypto-asset white paper notified in accordance with Article 8 of\nthe MiCA Regulation, to order the immediate cessation of the\nactivity without prior warning or imposition of a deadline;\n(v)\nto take any type of measure to ensure that an offeror or a person\nseeking admission to trading of crypto-assets, an issuer of an\nasset-referenced token or an e-money token or a crypto-asset\n6  [607]\nservice provider complies with the MiCA Regulation including to\nrequire the cessation of any practice or conduct that the Bank\nconsiders contrary to the MiCA Regulation;\n(w) to carry out on-site inspections or investigations at sites other than\nthe private residences of natural persons, and for that purpose to\nenter premises in order to access documents and other data in any\nform;\n(x)\nto outsource verifications or investigations to auditors or experts;\n(y)\nto require the removal of a natural person from the management\nbody of an issuer of an asset-referenced token or of a crypto-asset\nservice provider;\n(z)\nto request any person to take steps to reduce the size of its position\nor exposure to crypto-assets;\n(aa) where no other effective means are available to bring about the\ncessation of the infringement of the MiCA Regulation and in\norder to avoid the risk of serious harm to the interests of clients\nor holders of crypto-assets to take all necessary measures,\nincluding by requesting a third party or a public authority to\nimplement such measures, to\n(i)\nremove content or restrict access to an online interface or to\norder the explicit display of a warning to clients and holders\nof crypto-assets when they access an online interface,\n(ii)\norder a hosting service provider to remove, disable or\nrestrict access to an online interface, or\n(iii) order domain registries or registrars to delete a fully\nqualified domain name and allow the Bank to register it;\n(ab) to require an issuer of an asset-referenced token or e-money\ntoken, in accordance with Article 23(4), 24(3) or 58(3) of the\nMiCA Regulation, to introduce a minimum denomination amount\nor to limit the amount issued.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(2)",
+              "title": null,
+              "start_line": 239,
+              "end_line": 247,
+              "page": 6,
+              "content": "(2) Supervisory and investigative powers exercised in relation to offerors,\npersons seeking admission to trading, issuers and crypto-asset service providers\nare without prejudice to powers granted to the Bank or other supervisory\nauthorities regarding those entities, including powers granted to the Bank under\nthe European Communities (Electronic Money) Regulations 2011 (S.I. No. 183\nof 2011) and prudential supervisory powers granted to the European Central\nBank under Regulation (EU) No. 1024/2013 of 15 October 20133 conferring\nspecific tasks on the European Central Bank concerning policies relating to the\nprudential supervision of credit institutions.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(3)",
+              "title": null,
+              "start_line": 248,
+              "end_line": 270,
+              "page": 6,
+              "content": null,
+              "children": [
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(a)",
+                  "title": null,
+                  "start_line": 253,
+                  "end_line": 255,
+                  "page": 7,
+                  "content": "(a)\nto access any document and data in any form, and to receive or\ntake a copy thereof;",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(b)",
+                  "title": null,
+                  "start_line": 256,
+                  "end_line": 261,
+                  "page": 7,
+                  "content": "(b)\nto require or demand information from any person, including\nthose who are successively involved in the transmission of orders\nor conduct of the operations concerned, as well as their principals\nand, if necessary, to summon and question any such person with\na view to obtain information;",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(c)",
+                  "title": null,
+                  "start_line": 262,
+                  "end_line": 263,
+                  "page": 7,
+                  "content": "(c)\nto refer matters for criminal prosecution;",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(d)",
+                  "title": null,
+                  "start_line": 264,
+                  "end_line": 270,
+                  "page": 7,
+                  "content": "(d)\nto take all necessary measures to ensure that the public is correctly\ninformed, inter alia, by correcting false or misleading disclosed\ninformation, including by requiring an offeror, person seeking\nadmission to trading or issuer or other person who has published\nor disseminated false or misleading information to publish a\ncorrective statement.",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(4)",
+              "title": null,
+              "start_line": 271,
+              "end_line": 275,
+              "page": 7,
+              "content": "(4) A person making information available to the Bank in accordance with\nthe MiCA Regulation shall not be considered to infringe any restriction on\ndisclosure of information imposed by contract or by any legislative, regulatory\nor administrative provision, and shall not be subject to liability of any kind\nrelated to such notification.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(5)",
+              "title": null,
+              "start_line": 276,
+              "end_line": 278,
+              "page": 7,
+              "content": "(5) The Bank shall not exercise the powers referred to in paragraphs (1) and\n(3) in a manner or for a purpose inconsistent with the Banks obligations\npursuant to the MiCA Regulation.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(6)",
+              "title": null,
+              "start_line": 279,
+              "end_line": 281,
+              "page": 7,
+              "content": "(6) The powers of the Bank referred to in paragraphs (1) and (3) are without\nprejudice to the powers of the Bank under any other provision of these\nRegulations, the MiCA Regulation or any other enactment.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(7)",
+              "title": null,
+              "start_line": 282,
+              "end_line": 283,
+              "page": 7,
+              "content": "(7) The Bank shall exercise its powers under this Regulation in accordance\nwith the requirements of Part IIIC of the Act of 1942.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "type": "regulation",
+          "number": "5",
+          "title": "Governance arrangements",
+          "start_line": 284,
+          "end_line": 327,
+          "page": 7,
+          "content": null,
+          "children": [
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(1)",
+              "title": null,
+              "start_line": 285,
+              "end_line": 292,
+              "page": 7,
+              "content": "5. (1) Where the Bank has reason to believe that a person who has a\nqualifying holding, or voting rights attaching to shares, in a crypto-asset service\nprovider is exercising an influence on the direction of the affairs of the crypto-\nasset service provider which is, or is likely to be, prejudicial to the prudent and\nsound management of the crypto-asset service provider, it shall, subject to\nparagraph (2), notify the person that the Bank so believes and direct that person,\nin writing, to take specified measures to bring such influence to an end within a\nperiod specified in the direction.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(2)",
+              "title": null,
+              "start_line": 293,
+              "end_line": 297,
+              "page": 7,
+              "content": "(2) Before issuing a direction to a person under paragraph (1), the Bank shall\nnotify the person, in writing, of its intention to issue the direction and shall give\nthe person an opportunity to make such representations on the matter as he or\nshe may wish to make in such form and within such period as may be specified\nby the Bank in the notification.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(3)",
+              "title": null,
+              "start_line": 298,
+              "end_line": 299,
+              "page": 7,
+              "content": "(3) A direction issued under paragraph (1) is an appealable decision for the\npurposes of Part VIIA of the Act of 1942.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(4)",
+              "title": null,
+              "start_line": 301,
+              "end_line": 323,
+              "page": 8,
+              "content": null,
+              "children": [
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(a)",
+                  "title": null,
+                  "start_line": 306,
+                  "end_line": 313,
+                  "page": 8,
+                  "content": "(a)\nan injunction prohibiting the person concerned from issuing\ndirections to directors or to any manager, secretary, officer or staff\nof, or persons engaged by, the crypto-asset service provider and\nprohibiting any director, manager, secretary, officer or any other\nperson acting on behalf of the crypto-asset service provider from\nseeking directions from, or consulting, the person concerned, or\nfrom acting on such directions without the consent of the Bank;",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(b)",
+                  "title": null,
+                  "start_line": 314,
+                  "end_line": 317,
+                  "page": 8,
+                  "content": "(b)\nan order suspending the exercise by the person concerned of any\ninterest in or voting rights attaching to shares held by that person\nin the crypto-asset service provider;",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(c)",
+                  "title": null,
+                  "start_line": 318,
+                  "end_line": 321,
+                  "page": 8,
+                  "content": "(c)\nan order requiring the person concerned to dispose of some or all\nof his or her shareholding, interests or rights in the crypto-asset\nservice provider within a period specified by the Court;",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(d)",
+                  "title": null,
+                  "start_line": 322,
+                  "end_line": 323,
+                  "page": 8,
+                  "content": "(d)\nsuch other order as the Court considers appropriate.",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(5)",
+              "title": null,
+              "start_line": 324,
+              "end_line": 327,
+              "page": 8,
+              "content": "(5) Where the Court is satisfied, because of the nature or the circumstances\nof the case or otherwise in the interests of justice that it is desirable, the whole\nor any part of proceedings before it under this Regulation may be heard\notherwise than in public.",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "type": "part",
+      "number": "IV",
+      "title": "ENFORCEMENT AGAINST REGULATED FINANCIAL SERVICE PROVIDERS",
+      "start_line": 328,
+      "end_line": 498,
+      "page": 8,
+      "content": null,
+      "children": [
+        {
+          "level": 2,
+          "type": "regulation",
+          "number": "6",
+          "title": "Administrative penalties and other administrative measures",
+          "start_line": 332,
+          "end_line": 498,
+          "page": 8,
+          "content": null,
+          "children": [
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(1)",
+              "title": null,
+              "start_line": 332,
+              "end_line": 340,
+              "page": 8,
+              "content": "6. (1) Where the provisions of the Act of 1942 are invoked in relation to a\ncontravention specified in paragraph (3), any of the administrative penalties and\nother administrative measures referred to in paragraph (4) may be imposed (or\ntaken) by the Bank\n(a)\nfollowing an inquiry under section 33AO of the Act of 1942, or\n(b)\nin accordance with section 33AR or section 33AV of the Act of\n1942.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(2)",
+              "title": null,
+              "start_line": 341,
+              "end_line": 344,
+              "page": 8,
+              "content": "(2) The power of the Bank to impose (or take) any of the administrative\npenalties and other administrative measures referred to in paragraph (4) is in\naddition to and not in substitution for its power to impose any of the sanctions\nspecified in section 33AQ of the Act of 1942.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(3)",
+              "title": null,
+              "start_line": 345,
+              "end_line": 365,
+              "page": 8,
+              "content": null,
+              "children": [
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(a)",
+                  "title": null,
+                  "start_line": 347,
+                  "end_line": 349,
+                  "page": 9,
+                  "content": "(a)\nan infringement of any of Articles 4 to 14 of the MiCA\nRegulation;",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(b)",
+                  "title": null,
+                  "start_line": 350,
+                  "end_line": 352,
+                  "page": 9,
+                  "content": "(b)\nan infringement of any of Articles 16, 17, 19, 22, 23, 25, 27 to 41,\n46 and 47 of the MiCA Regulation;",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(c)",
+                  "title": null,
+                  "start_line": 353,
+                  "end_line": 355,
+                  "page": 9,
+                  "content": "(c)\nan infringement of any of Articles 48 to 51, 53, 54 and 55 of the\nMiCA Regulation;",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(d)",
+                  "title": null,
+                  "start_line": 356,
+                  "end_line": 358,
+                  "page": 9,
+                  "content": "(d)\nan infringement of any of Articles 59, 60, 64 and 65 to 83 of the\nMiCA Regulation;",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(e)",
+                  "title": null,
+                  "start_line": 359,
+                  "end_line": 361,
+                  "page": 9,
+                  "content": "(e)\nan infringement of any of Articles 88 to 92 of the MiCA\nRegulation;",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(f)",
+                  "title": null,
+                  "start_line": 362,
+                  "end_line": 365,
+                  "page": 9,
+                  "content": "(f)\nfailure to cooperate or to comply with an investigation, an\ninspection or a request as referred to in Article 94(3) of the MiCA\nRegulation.",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(4)",
+              "title": null,
+              "start_line": 366,
+              "end_line": 473,
+              "page": 9,
+              "content": null,
+              "children": [
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(a)",
+                  "title": null,
+                  "start_line": 368,
+                  "end_line": 384,
+                  "page": 9,
+                  "content": null,
+                  "children": [
+                    {
+                      "level": 5,
+                      "type": "sub-clause",
+                      "number": "(i)",
+                      "title": null,
+                      "start_line": 371,
+                      "end_line": 373,
+                      "page": 9,
+                      "content": "(i)\na public statement indicating the natural or legal person\nresponsible and the nature of the infringement;",
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "type": "sub-clause",
+                      "number": "(ii)",
+                      "title": null,
+                      "start_line": 374,
+                      "end_line": 377,
+                      "page": 9,
+                      "content": "(ii)\nan order requiring the natural or legal person responsible to\ncease the conduct constituting the infringement and to\ndesist from a repetition of that conduct;",
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "type": "sub-clause",
+                      "number": "(iii)",
+                      "title": null,
+                      "start_line": 378,
+                      "end_line": 382,
+                      "page": 9,
+                      "content": "(iii) maximum administrative fines of twice the amount of the\nprofits gained or losses avoided because of the infringement\nwhere those can be determined, even if it exceeds the\nmaximum amounts set out in clause (iv), as regards natural\npersons, or in subparagraph (b), as regards legal persons;",
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "type": "sub-clause",
+                      "number": "(iv)",
+                      "title": null,
+                      "start_line": 383,
+                      "end_line": 384,
+                      "page": 9,
+                      "content": "(iv) in the case of a natural person, maximum administrative\nfines of 1,000,000;",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(b)",
+                  "title": null,
+                  "start_line": 385,
+                  "end_line": 410,
+                  "page": 9,
+                  "content": "(b)\nin relation to infringements committed by legal persons,\nmaximum administrative fines of:\n(i)\n5,000,000\nfor\nthe\ninfringements\nreferred\nto\nin\nsubparagraphs (a) to (d) of paragraph (3);\n(ii)\n3 per cent of the total annual turnover of the legal person\naccording to the last available financial statements\napproved by the management body for the infringements\nreferred to in paragraph (3)(a);\n(iii) 5 per cent of the total annual turnover of the legal person\naccording to the last available financial statements\napproved by the management body for the infringements\nreferred to in paragraph (3)(d);\n10  [607]\n(iv) 12.5 per cent of the total annual turnover of the legal person\naccording to the last available financial statements\napproved by the management body for the infringements\nreferred to in subparagraphs (b) and (c) of paragraph (3);",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(c)",
+                  "title": null,
+                  "start_line": 411,
+                  "end_line": 425,
+                  "page": 10,
+                  "content": "(c)\nin the event of an infringement referred to in subparagraph (d) of\nparagraph\n(3),\nthe\nadministrative\npenalties\nand\nother\nadministrative measures as well as administrative fines referred\nto in subparagraphs (a) and (b), and a temporary ban preventing\nany member of the management body of the crypto-asset service\nprovider, or any other natural person who is held responsible for\nthe infringement, from exercising management functions in a\ncrypto-asset service provider;",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(d)",
+                  "title": null,
+                  "start_line": 426,
+                  "end_line": 473,
+                  "page": 10,
+                  "content": null,
+                  "children": [
+                    {
+                      "level": 5,
+                      "type": "sub-clause",
+                      "number": "(i)",
+                      "title": null,
+                      "start_line": 430,
+                      "end_line": 432,
+                      "page": 10,
+                      "content": "(i)\na public statement indicating the natural or legal person\nresponsible and the nature of the infringement;",
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "type": "sub-clause",
+                      "number": "(ii)",
+                      "title": null,
+                      "start_line": 433,
+                      "end_line": 436,
+                      "page": 10,
+                      "content": "(ii)\nan order requiring the natural or legal person responsible to\ncease the conduct constituting the infringement and to\ndesist from a repetition of that conduct;",
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "type": "sub-clause",
+                      "number": "(iii)",
+                      "title": null,
+                      "start_line": 437,
+                      "end_line": 438,
+                      "page": 10,
+                      "content": "(iii) the disgorgement of the profits gained or losses avoided due\nto the infringement insofar as they can be determined;",
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "type": "sub-clause",
+                      "number": "(iv)",
+                      "title": null,
+                      "start_line": 439,
+                      "end_line": 440,
+                      "page": 10,
+                      "content": "(iv) withdrawal or suspension of the authorisation of a crypto-\nasset service provider;",
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "type": "sub-clause",
+                      "number": "(v)",
+                      "title": null,
+                      "start_line": 441,
+                      "end_line": 446,
+                      "page": 10,
+                      "content": "(v)\na temporary ban of any member of the management body\nof the crypto-asset service provider, or any other natural\nperson who is held responsible for the infringement, from\nexercising management functions in crypto-asset service\nproviders;",
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "type": "sub-clause",
+                      "number": "(vi)",
+                      "title": null,
+                      "start_line": 447,
+                      "end_line": 452,
+                      "page": 10,
+                      "content": "(vi) in the event of a repeated infringement of Article 89, 90, 91\nor 92, a ban of 10 years for any member of the management\nbody of a crypto-asset service provider, or any other natural\nperson who is held responsible for the infringement, from\nexercising management functions in a crypto-asset service\nprovider;",
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "type": "sub-clause",
+                      "number": "(vii)",
+                      "title": null,
+                      "start_line": 453,
+                      "end_line": 456,
+                      "page": 10,
+                      "content": "(vii) a temporary ban of any member of the management body\nof a crypto-asset service provider or any other natural\nperson who is held responsible for the infringement, from\ndealing on own account;",
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "type": "sub-clause",
+                      "number": "(viii)",
+                      "title": null,
+                      "start_line": 457,
+                      "end_line": 461,
+                      "page": 10,
+                      "content": "(viii) maximum administrative fines of three times the amount of\nthe profits gained or losses avoided because of the\ninfringement, where those can be determined, even if it\nexceeds the maximum amounts set out in clause (ix) or (x),\nas applicable;",
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "type": "sub-clause",
+                      "number": "(ix)",
+                      "title": null,
+                      "start_line": 463,
+                      "end_line": 465,
+                      "page": 11,
+                      "content": "(ix) in respect of a natural person, maximum administrative\nfines of 1,000,000 for infringements of Article 88 and\n5,000,000 for infringements of Articles 89 to 92;",
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "type": "sub-clause",
+                      "number": "(x)",
+                      "title": null,
+                      "start_line": 466,
+                      "end_line": 473,
+                      "page": 11,
+                      "content": "(x)\nin respect of legal persons, maximum administrative fines\nof 2,500,000 for infringements of Article 88 and\n15,000,000 for infringements of Articles 89 to 92, or 2 per\ncent for infringements of Article 88 and 15 per cent for\ninfringements of Articles 89 to 92 of the total annual\nturnover of the legal person according to the last available\naccounts approved by the management body.",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(5)",
+              "title": null,
+              "start_line": 474,
+              "end_line": 483,
+              "page": 11,
+              "content": "(5) For the purpose of paragraph (4), where the legal person referred to in\nclauses (ii) to (iv) of subparagraph (b) or clause (x) of subparagraph (d), as the\ncase may be, of paragraph (4) is a parent undertaking or a subsidiary of a parent\nundertaking which is required to prepare consolidated financial statements in\naccordance with Directive 2013/34/EU of the European Parliament and of the\nCouncil of 26 June 20134, the relevant total annual turnover shall be the total\nannual turnover or the corresponding type of income in accordance with\napplicable European Union law in the field of accounting according to the last\navailable consolidated accounts approved by the management body of the\nultimate parent undertaking.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(6)",
+              "title": null,
+              "start_line": 484,
+              "end_line": 487,
+              "page": 11,
+              "content": "(6) For the purposes of a contravention specified in paragraph (3), any\nreference in the Act of 1942 to the sanctions set out in section 33AQ of that Act\nis to be read as including a reference to the administrative penalties and other\nadministrative measures referred to in paragraph (4).",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(7)",
+              "title": null,
+              "start_line": 488,
+              "end_line": 492,
+              "page": 11,
+              "content": "(7) Where an administrative penalty or other administrative measure referred\nto in paragraph (4) is imposed (or taken) in respect of a contravention specified\nin paragraph (3), the type and level of any such penalty or measure, or penalties\nor measures, to be imposed (or taken) in respect of such a contravention shall be\ndetermined in accordance with Article 112 of the MiCA Regulation.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(8)",
+              "title": null,
+              "start_line": 493,
+              "end_line": 498,
+              "page": 11,
+              "content": "(8) Where an administrative penalty or other administrative measure referred\nto in paragraph (4) is imposed (or taken) in respect of a contravention specified\nin paragraph (3), the provisions of Article 114 of the MiCA Regulation shall\napply in respect of the publication by the Bank of a decision to impose (or take)\nany such penalty or measure, or penalties or measures, and section 33BC of the\nAct of 1942 shall not apply.",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "type": "part",
+      "number": "V",
+      "title": "ENFORCEMENT AGAINST NON-REGULATED FINANCIAL SERVICE PROVIDERS",
+      "start_line": 499,
+      "end_line": 920,
+      "page": 11,
+      "content": null,
+      "children": [
+        {
+          "level": 2,
+          "type": "regulation",
+          "number": "7",
+          "title": "Interpretation",
+          "start_line": 503,
+          "end_line": 535,
+          "page": 11,
+          "content": null,
+          "children": [
+            {
+              "level": 3,
+              "type": "definition",
+              "number": "adverse assessment",
+              "title": null,
+              "start_line": 507,
+              "end_line": 508,
+              "page": 12,
+              "content": "adverse assessment means an assessment in which the assessor has decided\nthat the assessee is committing or has committed a prescribed contravention;",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "definition",
+              "number": "assessee",
+              "title": null,
+              "start_line": 509,
+              "end_line": 510,
+              "page": 12,
+              "content": "assessee means a person the subject of an assessment referred to in Regulation\n8(1);",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "definition",
+              "number": "assessment",
+              "title": null,
+              "start_line": 511,
+              "end_line": 511,
+              "page": 12,
+              "content": "assessment means an assessment referred to in Regulation 8;",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "definition",
+              "number": "assessor",
+              "title": null,
+              "start_line": 512,
+              "end_line": 512,
+              "page": 12,
+              "content": "assessor means an assessor appointed by the Bank under Regulation 8;",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "definition",
+              "number": "contravene",
+              "title": null,
+              "start_line": 513,
+              "end_line": 526,
+              "page": 12,
+              "content": null,
+              "children": [
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(a)",
+                  "title": null,
+                  "start_line": 514,
+                  "end_line": 515,
+                  "page": 12,
+                  "content": "(a)\nattempting to contravene,",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(b)",
+                  "title": null,
+                  "start_line": 516,
+                  "end_line": 518,
+                  "page": 12,
+                  "content": "(b)\naiding, abetting, counselling or procuring a person to commit a\ncontravention,",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(c)",
+                  "title": null,
+                  "start_line": 519,
+                  "end_line": 521,
+                  "page": 12,
+                  "content": "(c)\ninducing, or attempting to induce, a person (whether by threats or\npromises or otherwise) to commit a contravention,",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(d)",
+                  "title": null,
+                  "start_line": 522,
+                  "end_line": 524,
+                  "page": 12,
+                  "content": "(d)\nbeing (directly or indirectly) knowingly concerned in, or a party\nto, a contravention, and",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(e)",
+                  "title": null,
+                  "start_line": 525,
+                  "end_line": 526,
+                  "page": 12,
+                  "content": "(e)\nconspiring with others to commit a contravention;",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "type": "definition",
+              "number": "non-regulated financial service provider",
+              "title": null,
+              "start_line": 527,
+              "end_line": 529,
+              "page": 12,
+              "content": "non-regulated financial service provider means a person who is not a regulated\nfinancial service provider (within the meaning of the Act of 1942) but who\notherwise is a person subject to requirements imposed by the MiCA Regulation;",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "definition",
+              "number": "prescribed contravention",
+              "title": null,
+              "start_line": 530,
+              "end_line": 533,
+              "page": 12,
+              "content": "prescribed contravention means a contravention of Title VI of the MiCA\nRegulation, or a failure to cooperate or to comply with an investigation, with an\ninspection or with a request as referred to in Article 94(3) of the MiCA\nRegulation or Regulation 4, by a non-regulated financial service provider;",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "definition",
+              "number": "specified sanction",
+              "title": null,
+              "start_line": 534,
+              "end_line": 535,
+              "page": 12,
+              "content": "specified sanction, in relation to an adverse assessment, means a sanction or\nsanctions referred to in Regulation 17 that may be imposed on the assessee.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "type": "regulation",
+          "number": "8",
+          "title": "Appointment of assessor",
+          "start_line": 537,
+          "end_line": 605,
+          "page": 12,
+          "content": null,
+          "children": [
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(1)",
+              "title": null,
+              "start_line": 537,
+              "end_line": 549,
+              "page": 12,
+              "content": "8. (1) Where the Bank has reason to suspect that a prescribed contravention\nis being committed or has been committed by a person who is a non-regulated\nfinancial service provider (in this Part referred to as the assessee), the Bank\nmay appoint an assessor (or, if the Bank thinks fit to do so, more than one\nassessor) to conduct an assessment as to\n(a)\nwhether or not the assessee is committing or has committed the\ncontravention, and\n(b)\nwhere the assessor finds that the assessee is committing or has\ncommitted the contravention, the specified sanction or sanctions,\nif any, which the assessor considers is or are appropriate to be\nimposed on the assessee in respect of the contravention.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(2)",
+              "title": null,
+              "start_line": 550,
+              "end_line": 552,
+              "page": 12,
+              "content": "(2) The Bank may appoint an assessor who is not an officer, employee or\nofficial of the Bank and any such assessor so appointed is an agent of the Bank\nfor the purpose of performing the functions of an assessor under this Part.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(3)",
+              "title": null,
+              "start_line": 554,
+              "end_line": 556,
+              "page": 13,
+              "content": "(3) The Bank shall provide the assessor with such administrative services\n(including technical and legal advice) as the Bank considers necessary to enable\nthe assessor to perform the assessors functions.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(4)",
+              "title": null,
+              "start_line": 557,
+              "end_line": 558,
+              "page": 13,
+              "content": "(4) The assessor shall, as soon as is practicable after his or her appointment\nas an assessor, give notice of the appointment to the assessee.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(5)",
+              "title": null,
+              "start_line": 559,
+              "end_line": 577,
+              "page": 13,
+              "content": null,
+              "children": [
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(a)",
+                  "title": null,
+                  "start_line": 560,
+                  "end_line": 562,
+                  "page": 13,
+                  "content": "(a)\na statement that the assessor is appointed by the Bank under this\nRegulation,",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(b)",
+                  "title": null,
+                  "start_line": 563,
+                  "end_line": 565,
+                  "page": 13,
+                  "content": "(b)\na statement in summary form of the grounds for conducting the\nassessment,",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(c)",
+                  "title": null,
+                  "start_line": 566,
+                  "end_line": 574,
+                  "page": 13,
+                  "content": null,
+                  "children": [
+                    {
+                      "level": 5,
+                      "type": "sub-clause",
+                      "number": "(i)",
+                      "title": null,
+                      "start_line": 569,
+                      "end_line": 570,
+                      "page": 13,
+                      "content": "(i)\nmake submissions in writing to the assessor, and",
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "type": "sub-clause",
+                      "number": "(ii)",
+                      "title": null,
+                      "start_line": 571,
+                      "end_line": 573,
+                      "page": 13,
+                      "content": "(ii)\nrequest the assessor to be permitted to make oral\nsubmissions about the matters to which the notice relates,",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(d)",
+                  "title": null,
+                  "start_line": 575,
+                  "end_line": 577,
+                  "page": 13,
+                  "content": "(d)\na statement that the assessor shall conduct the assessment even if\nno submissions referred to in subparagraph (c) are made.",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(6)",
+              "title": null,
+              "start_line": 578,
+              "end_line": 584,
+              "page": 13,
+              "content": null,
+              "children": [
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(a)",
+                  "title": null,
+                  "start_line": 579,
+                  "end_line": 581,
+                  "page": 13,
+                  "content": "(a)\nconsider any submissions referred to in paragraph (5)(c) made by\nthe assessee, and",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(b)",
+                  "title": null,
+                  "start_line": 582,
+                  "end_line": 584,
+                  "page": 13,
+                  "content": "(b)\nconduct such investigations relating to the assessment as the\nassessor considers appropriate before issuing the assessment.",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(7)",
+              "title": null,
+              "start_line": 585,
+              "end_line": 586,
+              "page": 13,
+              "content": "(7) The assessor shall issue the assessment to the Bank when the assessment\nis made.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(8)",
+              "title": null,
+              "start_line": 587,
+              "end_line": 600,
+              "page": 13,
+              "content": null,
+              "children": [
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(a)",
+                  "title": null,
+                  "start_line": 590,
+                  "end_line": 593,
+                  "page": 13,
+                  "content": "(a)\na statement of the grounds upon which the assessor made the\nassessment that the assessee is committing or has committed the\ncontravention,",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(b)",
+                  "title": null,
+                  "start_line": 594,
+                  "end_line": 596,
+                  "page": 13,
+                  "content": "(b)\na statement in summary form of the evidence upon which the\nassessment is based, and",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(c)",
+                  "title": null,
+                  "start_line": 597,
+                  "end_line": 600,
+                  "page": 13,
+                  "content": "(c)\na statement of the sanction or sanctions, if any, which the assessor\nconsiders is or are appropriate to be imposed on the assessee in\nrespect of the contravention.",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(9)",
+              "title": null,
+              "start_line": 601,
+              "end_line": 602,
+              "page": 13,
+              "content": "(9) The appointment of an assessor may be for a specified or unspecified\nperiod.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(10)",
+              "title": null,
+              "start_line": 603,
+              "end_line": 605,
+              "page": 13,
+              "content": "(10)  Subject to Regulations 13 and 14(2), the assessment referred to in\nparagraph (7) shall constitute the decision of the Bank, and references in this\nPart to an adverse assessment shall be construed accordingly.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "type": "regulation",
+          "number": "9",
+          "title": "Revocation of appointment of assessor",
+          "start_line": 608,
+          "end_line": 629,
+          "page": 14,
+          "content": null,
+          "children": [
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(1)",
+              "title": null,
+              "start_line": 608,
+              "end_line": 610,
+              "page": 14,
+              "content": "9. (1) Where the Bank is satisfied that an assessor has contravened\nparagraph (2) or is incapacitated, the Bank may revoke the appointment of the\nassessor at any time.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(2)",
+              "title": null,
+              "start_line": 611,
+              "end_line": 629,
+              "page": 14,
+              "content": null,
+              "children": [
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(a)",
+                  "title": null,
+                  "start_line": 613,
+                  "end_line": 615,
+                  "page": 14,
+                  "content": "(a)\ndisclose to the Bank any material interest that the assessor may\nhave in any matter that may arise during the assessment,",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(b)",
+                  "title": null,
+                  "start_line": 616,
+                  "end_line": 618,
+                  "page": 14,
+                  "content": "(b)\ndisclose to the Bank any actual or potential conflict of interest that\nthe assessor may have in conducting an assessment,",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(c)",
+                  "title": null,
+                  "start_line": 619,
+                  "end_line": 622,
+                  "page": 14,
+                  "content": "(c)\nnot use any information obtained during an assessment for any\npurpose other than the performance of the assessors functions\nunder this Part,",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(d)",
+                  "title": null,
+                  "start_line": 623,
+                  "end_line": 624,
+                  "page": 14,
+                  "content": "(d)\nnot engage in misconduct during the assessment,",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(e)",
+                  "title": null,
+                  "start_line": 625,
+                  "end_line": 627,
+                  "page": 14,
+                  "content": "(e)\nperform the assessors functions in accordance with the\nprocedures and requirements set out in this Part, and",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(f)",
+                  "title": null,
+                  "start_line": 628,
+                  "end_line": 629,
+                  "page": 14,
+                  "content": "(f)\nissue an assessment that is not contrary to law.",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "type": "regulation",
+          "number": "10",
+          "title": "Power to require witnesses to appear and to give evidence",
+          "start_line": 631,
+          "end_line": 682,
+          "page": 14,
+          "content": null,
+          "children": [
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(1)",
+              "title": null,
+              "start_line": 631,
+              "end_line": 642,
+              "page": 14,
+              "content": "10. (1) The assessor may, by notice given in or outside the State to a person,\nrequire the person to do one or more of the following:\n(a)\nappear before the assessor to give evidence (including giving\nevidence on oath);\n(b)\nproduce documents specified in the notice which are in the\nperson's custody or control;\n(c)\nfor the purposes of subparagraph (a) or (b), attend before the\nassessor from day to day, unless excused from attendance or\nreleased from further attendance by the assessor.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(2)",
+              "title": null,
+              "start_line": 643,
+              "end_line": 644,
+              "page": 14,
+              "content": "(2) The assessor may administer oaths for the purposes of the evidence\nreferred to in paragraph (1)(a).",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(3)",
+              "title": null,
+              "start_line": 645,
+              "end_line": 646,
+              "page": 14,
+              "content": "(3) A witness at a hearing before the assessor has the same liabilities,\nprivileges and immunities as a witness before the Court.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(4)",
+              "title": null,
+              "start_line": 647,
+              "end_line": 682,
+              "page": 14,
+              "content": null,
+              "children": [
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(a)",
+                  "title": null,
+                  "start_line": 648,
+                  "end_line": 649,
+                  "page": 14,
+                  "content": "(a)\nfails to comply with a notice under paragraph (1),",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(b)",
+                  "title": null,
+                  "start_line": 650,
+                  "end_line": 652,
+                  "page": 14,
+                  "content": "(b)\nthreatens or insults the assessor or any witness or person required\nto attend before the assessor,",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(c)",
+                  "title": null,
+                  "start_line": 653,
+                  "end_line": 655,
+                  "page": 14,
+                  "content": "(c)\ninterrupts the proceedings of, or does not behave in an appropriate\nmanner before, the assessor,",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(d)",
+                  "title": null,
+                  "start_line": 656,
+                  "end_line": 657,
+                  "page": 14,
+                  "content": "(d)\nobstructs or attempts to obstruct the assessor,",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(e)",
+                  "title": null,
+                  "start_line": 659,
+                  "end_line": 662,
+                  "page": 15,
+                  "content": "(e)\ndiscloses, or authorises the disclosure of, evidence given before\nthe assessor or any of the contents of a document produced to the\nassessor that the assessor has instructed not to be disclosed, or",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(f)",
+                  "title": null,
+                  "start_line": 663,
+                  "end_line": 665,
+                  "page": 15,
+                  "content": "(f)\ndoes anything else that, if the assessor were a court of law having\npower to commit for contempt, would be contempt for that court,",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "sub-clause",
+                  "number": "(i)",
+                  "title": null,
+                  "start_line": 667,
+                  "end_line": 674,
+                  "page": 15,
+                  "content": null,
+                  "children": [
+                    {
+                      "level": 5,
+                      "type": "sub-clause",
+                      "number": "(I)",
+                      "title": null,
+                      "start_line": 670,
+                      "end_line": 671,
+                      "page": 15,
+                      "content": "(I)\ncomply with the notice under paragraph (1);",
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "type": "sub-clause",
+                      "number": "(II)",
+                      "title": null,
+                      "start_line": 672,
+                      "end_line": 673,
+                      "page": 15,
+                      "content": "(II) discontinue or not repeat the behaviour falling within\nany of the provisions of subparagraphs (b) to (f), or",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "level": 4,
+                  "type": "sub-clause",
+                  "number": "(ii)",
+                  "title": null,
+                  "start_line": 676,
+                  "end_line": 682,
+                  "page": 15,
+                  "content": "(ii)\nthe Court, if satisfied that there is no reasonable excuse for\nthe failure to comply with the notice under paragraph (1) or\nfor the behaviour concerned, as the case may be, may grant\nthe order and such other orders as it considers appropriate\nto ensure that the person concerned cooperates with the\nassessor.",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "type": "regulation",
+          "number": "11",
+          "title": "Referral to Court on question of law",
+          "start_line": 684,
+          "end_line": 694,
+          "page": 15,
+          "content": null,
+          "children": [
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(1)",
+              "title": null,
+              "start_line": 684,
+              "end_line": 686,
+              "page": 15,
+              "content": "11. (1) The Bank or the assessor may (including at the request of the\nassessee) refer a question of law arising in an assessment to the Court for\ndetermination by the Court.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(2)",
+              "title": null,
+              "start_line": 687,
+              "end_line": 694,
+              "page": 15,
+              "content": null,
+              "children": [
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(a)",
+                  "title": null,
+                  "start_line": 688,
+                  "end_line": 690,
+                  "page": 15,
+                  "content": "(a)\nthe assessor shall send to the Court all documents before the\nassessor that are relevant to the matter in question, and",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(b)",
+                  "title": null,
+                  "start_line": 691,
+                  "end_line": 694,
+                  "page": 15,
+                  "content": "(b)\nat the end of the proceedings in the Court in relation to the\nreference, the Court shall cause the documents to be returned to\nthe assessor.",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "type": "regulation",
+          "number": "12",
+          "title": "Assessee to be issued copy of any adverse assessment, etc.",
+          "start_line": 696,
+          "end_line": 714,
+          "page": 15,
+          "content": null,
+          "children": [
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(1)",
+              "title": null,
+              "start_line": 696,
+              "end_line": 711,
+              "page": 15,
+              "content": "12. (1) Where the assessment of an assessor is that the assessee is\ncommitting or has committed a prescribed contravention, the Bank shall\n(a)\nissue the assessee with a copy of the adverse assessment or, as the\nBank thinks fit, so much of the adverse assessment as constitutes\nthe statement referred to in Regulation 8(8), and\n(b)\nadvise the assessee that\n(i)\nthe assessee may appeal against the adverse assessment to\nthe Court under Regulation 13, and\n16  [607]\n(ii)\nthe Bank may apply to the Court under Regulation 16 for\nan order confirming the adverse assessment (including the\nspecified sanctions).",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(2)",
+              "title": null,
+              "start_line": 712,
+              "end_line": 714,
+              "page": 16,
+              "content": "(2) Where the assessment of an assessor is that the assessee is neither\ncommitting nor has committed a prescribed contravention, the Bank shall issue\nthe assessee with a statement to that effect.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "type": "regulation",
+          "number": "13",
+          "title": "Right of appeal against adverse assessment (including specified sanctions)",
+          "start_line": 716,
+          "end_line": 741,
+          "page": 16,
+          "content": null,
+          "children": [
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(1)",
+              "title": null,
+              "start_line": 716,
+              "end_line": 719,
+              "page": 16,
+              "content": "13. (1) The assessee may appeal against an adverse assessment (including\nthe specified sanctions) to the Court not later than 28 days after the Bank has\ncomplied with Regulation 12(1) in relation to the assessee, or within such further\nperiod as the Court allows.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(2)",
+              "title": null,
+              "start_line": 720,
+              "end_line": 724,
+              "page": 16,
+              "content": "(2) Where the Court is satisfied, because of the nature or the circumstances\nof the case or otherwise in the interests of justice, that it is desirable that the\nwhole or any part of proceedings relating to an appeal under paragraph (1) should\nnot be heard in public then, where the Court so directs, the proceedings may be\nheard otherwise than in public.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(3)",
+              "title": null,
+              "start_line": 725,
+              "end_line": 727,
+              "page": 16,
+              "content": "(3) The Court may, pending the hearing and determination of an appeal\nunder paragraph (1), make such interim or interlocutory orders as the Court\nconsiders necessary in the circumstances.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(4)",
+              "title": null,
+              "start_line": 728,
+              "end_line": 735,
+              "page": 16,
+              "content": null,
+              "children": [
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(a)",
+                  "title": null,
+                  "start_line": 729,
+                  "end_line": 732,
+                  "page": 16,
+                  "content": "(a)\nsubject to paragraph (6), an order confirming, varying or setting\naside the adverse assessment (including the specified sanctions),\nwhether in whole or in part, or",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(b)",
+                  "title": null,
+                  "start_line": 733,
+                  "end_line": 735,
+                  "page": 16,
+                  "content": "(b)\nan order remitting the case to be decided again by the Bank in\naccordance with the directions of the Court.",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(5)",
+              "title": null,
+              "start_line": 736,
+              "end_line": 738,
+              "page": 16,
+              "content": "(5) The determination of the Court on the hearing of an appeal under\nparagraph (1) shall be final, except that a party to the appeal may apply to the\nCourt of Appeal to review the determination on a question of law.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(6)",
+              "title": null,
+              "start_line": 739,
+              "end_line": 741,
+              "page": 16,
+              "content": "(6) No variation of an adverse assessment under paragraph (4)(a) may\nprovide for the imposition of a sanction on the assessee which is not a sanction\nreferred to in Regulation 17.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "type": "regulation",
+          "number": "14",
+          "title": "Power to correct assessments",
+          "start_line": 743,
+          "end_line": 756,
+          "page": 16,
+          "content": null,
+          "children": [
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(1)",
+              "title": null,
+              "start_line": 743,
+              "end_line": 745,
+              "page": 16,
+              "content": "14. (1) Where the assessor or the Bank is satisfied that there is an obvious\nerror in the text of an assessment, the assessor or the Bank, as the case may be,\nmay alter the text of the assessment to remove the error.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(2)",
+              "title": null,
+              "start_line": 746,
+              "end_line": 747,
+              "page": 16,
+              "content": "(2) Where the text of an assessment is altered under paragraph (1), the text\nas so altered shall be taken to be the decision of the Bank under Regulation 8(10).",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(3)",
+              "title": null,
+              "start_line": 748,
+              "end_line": 756,
+              "page": 16,
+              "content": null,
+              "children": [
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(a)",
+                  "title": null,
+                  "start_line": 750,
+                  "end_line": 751,
+                  "page": 16,
+                  "content": "(a)\na clerical or typographical error,",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(b)",
+                  "title": null,
+                  "start_line": 753,
+                  "end_line": 754,
+                  "page": 17,
+                  "content": "(b)\nan error arising from an accidental slip or omission, or",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(c)",
+                  "title": null,
+                  "start_line": 755,
+                  "end_line": 756,
+                  "page": 17,
+                  "content": "(c)\na defect of form.",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "type": "regulation",
+          "number": "15",
+          "title": "When specified sanctions take effect",
+          "start_line": 758,
+          "end_line": 775,
+          "page": 17,
+          "content": null,
+          "children": [
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(1)",
+              "title": null,
+              "start_line": 758,
+              "end_line": 770,
+              "page": 17,
+              "content": "15. (1) Where\n(a)\nno appeal under Regulation 13 against the adverse assessment\n(including the specified sanctions) is lodged with the Court within\nthe period for lodging an appeal, or\n(b)\nan appeal under Regulation 13 against the adverse assessment\n(including the specified sanctions) which has been lodged with\nthe Court within the period for lodging the appeal is withdrawn\nor abandoned,\nthen, the specified sanctions pursuant to Regulation 8(8)(c), as confirmed or\nvaried in the order, if any, obtained under Regulation 16(2)(a), shall take effect\non the date of that order or such other date as the Court may specify in that order.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(2)",
+              "title": null,
+              "start_line": 771,
+              "end_line": 775,
+              "page": 17,
+              "content": "(2) Where an appeal under Regulation 13 against the adverse assessment is\nlodged with the Court within the period allowed for lodging the appeal, then, the\nspecified sanctions pursuant to Regulation 8(8)(c), as confirmed or varied in the\norder, if any, obtained under Regulation 13(4)(a), shall take effect on the date of\nthat order or such other date as the Court may specify in that order.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "type": "regulation",
+          "number": "16",
+          "title": "Enforcement of adverse assessment (including specified sanctions)",
+          "start_line": 777,
+          "end_line": 819,
+          "page": 17,
+          "content": null,
+          "children": [
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(1)",
+              "title": null,
+              "start_line": 777,
+              "end_line": 788,
+              "page": 17,
+              "content": "16. (1) Where\n(a)\nno appeal under Regulation 13 against an adverse assessment\n(including the specified sanctions) is lodged with the Court within\nthe period for lodging an appeal, or\n(b)\nan appeal under Regulation 13 against an adverse assessment\n(including the specified sanctions) which has been lodged with\nthe Court within the period for lodging the appeal is withdrawn\nor abandoned,\nthen, the Bank may apply to the Court for an order confirming the adverse\nassessment (including the specified sanctions).",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(2)",
+              "title": null,
+              "start_line": 789,
+              "end_line": 797,
+              "page": 17,
+              "content": null,
+              "children": [
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(a)",
+                  "title": null,
+                  "start_line": 791,
+                  "end_line": 794,
+                  "page": 17,
+                  "content": "(a)\nsubject to paragraph (7), an order confirming, varying or setting\naside the adverse assessment (including the specified sanctions)\nwhether in whole or in part, or",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(b)",
+                  "title": null,
+                  "start_line": 795,
+                  "end_line": 797,
+                  "page": 17,
+                  "content": "(b)\nan order remitting the case to be decided again by the Bank in\naccordance with the directions of the Court.",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(3)",
+              "title": null,
+              "start_line": 798,
+              "end_line": 806,
+              "page": 17,
+              "content": null,
+              "children": [
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(a)",
+                  "title": null,
+                  "start_line": 800,
+                  "end_line": 802,
+                  "page": 18,
+                  "content": "(a)\nthe assessee appears at the hearing as respondent to the\napplication, or",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(b)",
+                  "title": null,
+                  "start_line": 803,
+                  "end_line": 806,
+                  "page": 18,
+                  "content": "(b)\nif the assessee does not so appear, the Court is satisfied that a copy\nof the application under paragraph (1) has been served on the\nassessee.",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(4)",
+              "title": null,
+              "start_line": 807,
+              "end_line": 811,
+              "page": 18,
+              "content": "(4) Where the Court is satisfied that it is desirable that the whole or any part\nof proceedings relating to an application under paragraph (1) be heard otherwise\nthan in public because of the nature or the circumstances of the case or having\nregard to the interests of justice, the Court may make an order that the\nproceedings shall, in whole or in part, be heard otherwise than in public.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(5)",
+              "title": null,
+              "start_line": 812,
+              "end_line": 813,
+              "page": 18,
+              "content": "(5) The Court may, on an application under paragraph (1), make such interim\nor interlocutory orders as the Court considers necessary in the circumstances.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(6)",
+              "title": null,
+              "start_line": 814,
+              "end_line": 816,
+              "page": 18,
+              "content": "(6) The determination of the Court on the hearing of an application under\nparagraph (1) shall be final, except that the Bank or the respondent, if any, may\napply to the Court of Appeal to review the determination on a question of law.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(7)",
+              "title": null,
+              "start_line": 817,
+              "end_line": 819,
+              "page": 18,
+              "content": "(7) No variation of an adverse assessment under paragraph (2)(a) may\nprovide for the imposition of a sanction on the assessee that is not a sanction\nreferred to in Regulation 17.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "type": "regulation",
+          "number": "17",
+          "title": "Sanctions that may be imposed by Bank",
+          "start_line": 821,
+          "end_line": 906,
+          "page": 18,
+          "content": null,
+          "children": [
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(1)",
+              "title": null,
+              "start_line": 821,
+              "end_line": 864,
+              "page": 18,
+              "content": "17. (1) In the case of an adverse assessment, the Bank may impose on the\nassessee concerned the following sanctions:\n(a)\na public statement indicating the natural or legal person\nresponsible and the nature of the infringement;\n(b)\nan order requiring the natural or legal person responsible to cease\nthe conduct constituting the infringement and to desist from a\nrepetition of that conduct;\n(c)\nthe disgorgement of the profits gained or losses avoided due to\nthe infringement insofar as they can be determined;\n(d)\na temporary ban of any natural person who is held responsible for\nthe infringement, from exercising management functions in\ncrypto-asset service providers;\n(e)\nin the event of a repeated infringement of Article 89, 90, 91 or 92\nof the MiCA Regulation, a ban of 10 years for any natural person\nwho is held responsible for the infringement, from exercising\nmanagement functions in a crypto-asset service provider;\n(f)\na temporary ban of any natural person who is held responsible\nfor the infringement, from dealing on own account;\n(g)\nmaximum administrative fines of three times the amount of the\nprofits gained or losses avoided because of the infringement,\nwhere those can be determined, even if it exceeds the maximum\namounts set out in paragraph (h) or (i), as applicable;\n[607]  19\n(h)\nin respect of a natural person, maximum administrative fines of\n1,000,000 for infringements of Article 88 of the MiCA\nRegulation and 5,000,000 for infringements of Articles 89 to 92\nof the MiCA Regulation;\n(i)\nin respect of legal persons, maximum administrative fines of\n2,500,000 for infringements of Article 88 of the MiCA\nRegulation and 15,000,000 for infringements of Articles 89 to\n92 of the MiCA Regulation, or 2 per cent for infringements of\nArticle 88 of the MiCA Regulation and 15 per cent for\ninfringements of Articles 89 to 92 of the MiCA Regulation of the\ntotal annual turnover of the legal person according to the last\navailable accounts approved by the management body.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(2)",
+              "title": null,
+              "start_line": 865,
+              "end_line": 872,
+              "page": 19,
+              "content": "(2) For the purpose of paragraph (1)(i), where the legal person is a parent\nundertaking or a subsidiary of a parent undertaking which is required to prepare\nconsolidated financial statements in accordance with Directive 2013/34/EU of\nthe European Parliament and of the Council of 26 June 20135, the relevant total\nannual turnover shall be the total annual turnover or the corresponding type of\nincome in accordance with applicable European Union law in the field of\naccounting according to the last available consolidated accounts approved by the\nmanagement body of the ultimate parent undertaking.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(3)",
+              "title": null,
+              "start_line": 873,
+              "end_line": 896,
+              "page": 19,
+              "content": null,
+              "children": [
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(a)",
+                  "title": null,
+                  "start_line": 875,
+                  "end_line": 878,
+                  "page": 19,
+                  "content": "(a)\n5,000,000 for the infringements referred to in paragraph 1, first\nsubparagraph, points (a) to (d) of Article 111 of the MiCA\nRegulation;",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(b)",
+                  "title": null,
+                  "start_line": 879,
+                  "end_line": 884,
+                  "page": 19,
+                  "content": "(b)\n3 per cent of the total annual turnover of the legal person\naccording to the last available financial statements approved by\nthe management body, for the infringements referred to in\nparagraph 1, first subparagraph, point (a) of Article 111 of the\nMiCA Regulation;",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(c)",
+                  "title": null,
+                  "start_line": 885,
+                  "end_line": 890,
+                  "page": 19,
+                  "content": "(c)\n5 per cent of the total annual turnover of the legal person\naccording to the last available financial statements approved by\nthe management body, for the infringements referred to in\nparagraph 1, first subparagraph, point (d) of Article 111 of the\nMiCA Regulation;",
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "type": "clause",
+                  "number": "(d)",
+                  "title": null,
+                  "start_line": 891,
+                  "end_line": 896,
+                  "page": 19,
+                  "content": "(d)\n12.5 per cent of the total annual turnover of the legal person\naccording to the last available financial statements approved by\nthe management body, for the infringements referred to in\nparagraph 1, first subparagraph, points (b) and (c) of Article 111\nof the MiCA Regulation.",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(4)",
+              "title": null,
+              "start_line": 897,
+              "end_line": 906,
+              "page": 19,
+              "content": "(4) For the purpose of paragraph (3)(a), where the legal person is a parent\nundertaking or a subsidiary of a parent undertaking which is required to prepare\nconsolidated financial statements in accordance with Directive 2013/34/EU of\n5 OJ L 182, 29.6.2013, p. 19\n20  [607]\nthe European Parliament and of the Council of 26 June 20136, the relevant total\nannual turnover shall be the total annual turnover or the corresponding type of\nincome in accordance with applicable European Union law in the field of\naccounting according to the last available consolidated accounts approved by the\nmanagement body of the ultimate parent undertaking.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "type": "regulation",
+          "number": "18",
+          "title": "Power of Bank to resolve suspected contraventions, etc.",
+          "start_line": 908,
+          "end_line": 920,
+          "page": 20,
+          "content": "18. (1) Where the Bank has reason to suspect, based on reasonable grounds,\nthat an assessee is committing or has committed a prescribed contravention, it\nmay enter into an agreement in writing with the assessee to resolve the matter\n(including at any time before an assessment, if any, has been issued in respect of\nthe assessee).\n(2) An agreement entered into under paragraph (1)\n(a)\nis binding on the Bank and the assessee, and\n(b)\nmay include terms under which the assessee accepts the\nimposition of sanctions.\n(3) An agreement entered into under paragraph (1) may be enforced by the\nBank or the assessee in a court of competent jurisdiction.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "type": "part",
+      "number": "VI",
+      "title": "APPEALS",
+      "start_line": 921,
+      "end_line": 935,
+      "page": 20,
+      "content": null,
+      "children": [
+        {
+          "level": 2,
+          "type": "regulation",
+          "number": "19",
+          "title": "Right of appeal",
+          "start_line": 923,
+          "end_line": 934,
+          "page": 20,
+          "content": null,
+          "children": [
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(1)",
+              "title": null,
+              "start_line": 924,
+              "end_line": 925,
+              "page": 20,
+              "content": "19. (1) A decision of the Bank under the MiCA Regulation or these\nRegulations shall be properly reasoned.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(2)",
+              "title": null,
+              "start_line": 926,
+              "end_line": 929,
+              "page": 20,
+              "content": "(2) A decision imposing a measure, condition, requirement or sanction on a\nperson, or to give a direction to a person, or to refuse to grant an application for\nauthorisation to a person, under these Regulations or the MiCA Regulation is an\nappealable decision for the purpose of Part VIIA of the Act of 1942.",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "subsection",
+              "number": "(3)",
+              "title": null,
+              "start_line": 930,
+              "end_line": 934,
+              "page": 20,
+              "content": "(3) A failure to make a decision in respect of an application for an\nauthorisation under the MiCA Regulation within 6 months after the submission\nof the application in a case where the application contains all the information\nrequired under the MiCA Regulation is an appealable decision for the purpose\nof Part VIIA of the Act of 1942.",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "type": "part",
+      "number": "VII",
+      "title": "TRANSITIONAL MEASURES",
+      "start_line": 937,
+      "end_line": 943,
+      "page": 21,
+      "content": null,
+      "children": [
+        {
+          "level": 2,
+          "type": "regulation",
+          "number": "20",
+          "title": "Transitional measures",
+          "start_line": 939,
+          "end_line": 943,
+          "page": 21,
+          "content": "Transitional measures\n20. Crypto-asset service providers that provided their services in accordance\nwith applicable law before 30 December 2024, may continue to do so until 30\nDecember 2025 or until they are granted or refused an authorisation pursuant to\nArticle 63 of the MiCA Regulation, whichever is sooner.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "type": "part",
+      "number": "VIII",
+      "title": "CONSEQUENTIAL AMENDMENTS",
+      "start_line": 944,
+      "end_line": 1055,
+      "page": 21,
+      "content": null,
+      "children": [
+        {
+          "level": 2,
+          "type": "regulation",
+          "number": "21",
+          "title": "Amendment of Act of 1942",
+          "start_line": 946,
+          "end_line": 1028,
+          "page": 21,
+          "content": "Amendment of Act of 1942\n21.\nThe Act of 1942 is amended\n(a)\nin section 2(2A), by the substitution of the following paragraphs\nfor paragraphs (bf), (bg) (inserted by Regulation 13(a)(ii) of the\nEuropean Union (Recovery and Resolution of Central\nCounterparties) Regulations 2022 (S.I. No. 547 of 2022)) and\n(bg) (inserted by Regulation 10(a)(ii) of the European Union (Pan\nEuropean Personal Pension Product) Regulations 2022 (S.I. No.\n435 of 2022):\n(bf)\nRegulation (EU) 2020/1503 of the European Parliament\nand of the Council of 7 October 20207;\n(bg)\nRegulation (EU) No 2019/1238 of the European\nParliament and Council of 20 June 20198;\n(bh)\nRegulation (EU) 2021/23 of the European Parliament and\nof the Council of 16 December 20209;\n(bi)\nRegulation (EU) 2023/1114 of the European Parliament\nand of the Council of 31 May 202310.,\n(b)\nin section 33AK(10), in the definition of supervisory EU legal\nacts, by the insertion of the following paragraph after paragraph\n(an):\n(ao) Regulation (EU) No. 2023/1114 of the European\nParliament and of the Council of 31 May 202311;,\n(c)\nin section 33AN(1)\n(i)\nin the definition of designated enactment, by the insertion\nof or Regulation (EU) 2023/1114 of the European\n7 OJ No. L. 347, 20.10.2020, p. 1\n8 OJ No. L. 198, 25.7.2019, p.1\n9 OJ No. L 22, 22.1.2021, p. 1\n10 OJ No. L 150, 9.6.2023, p.40\n11 OJ No. L 150, 9.6.2023, p.40\n22  [607]\nParliament and of the Council of 31 May 2023 but (in\nrelation to the last-mentioned Regulation) wherever and\nonly in so far as it imposes a requirement on a person who\nis not a regulated financial service provider after or the\nSecuritisation Regulation\nbut\n(in relation\nto\nthe\nSecuritisation Regulation) wherever and only is so far as it\nimposes a requirement on a person who is not a regulated\nfinancial service provider,, and\n(ii)\nin the definition of designated statutory instrument, by\nthe insertion of or the European Union (Markets in Crypto-\nAssets) Regulations 2024 (S.I. No. 607 of 2024) but (in\nrelation to the last-mentioned Regulations) wherever and\nonly in so far as they impose a requirement on a person who\nis not a regulated financial service provider after or the\nEuropean Union (Anti-Money Laundering: Central\nMechanism for Information on Safe-Deposit Boxes and\nBank and Payment Accounts) Regulations 2022 (S.I. No.\n46 of 2022);,\n(d)\nin section 33BC, by the insertion of the following subsection after\nsubsection (20):\n(21) This section does not apply where Article 114 of\nRegulation (EU) 2023/1114 of the European Parliament and of\nthe Council of May 202312 applies.,\nand\n(e)\nin Part 2 of Schedule 2, by the insertion of the following item:\n84\nS.I. No.\n607 of\n2024\nEuropean Union\n(Markets in Crypto-\nAssets) Regulations\n2024\nThe whole\ninstrument\n.",
+          "children": []
+        },
+        {
+          "level": 2,
+          "type": "regulation",
+          "number": "22",
+          "title": "Amendment of European Union (Capital Requirements) Regulations 2014",
+          "start_line": 1029,
+          "end_line": 1048,
+          "page": 22,
+          "content": null,
+          "children": [
+            {
+              "level": 3,
+              "type": "clause",
+              "number": "(a)",
+              "title": null,
+              "start_line": 1032,
+              "end_line": 1036,
+              "page": 22,
+              "content": "(a)\nin paragraph 15, by the insertion of including electronic-money\ntokens as defined in Article 3(1), point (7), of Regulation (EU)\nNo. 2023/1114 of the European Parliament and of the Council of\n31 May 202313) after electronic money, and",
+              "children": []
+            },
+            {
+              "level": 3,
+              "type": "clause",
+              "number": "(b)",
+              "title": null,
+              "start_line": 1037,
+              "end_line": 1048,
+              "page": 22,
+              "content": "(b)\nby the insertion of the following paragraphs after paragraph 15:\n12 OJ No. L 150, 9.6.2023, p.40\n13 OJ No. L 150, 9.6.2023, p.40\n[607]  23\n(16) Issuing of asset-referenced tokens as defined in Article\n3(1), point (6), of Regulation (EU) No. 2023/1114 of the\nEuropean Parliament and of the Council of 31 May 202314.\n(17)\nCrypto-asset services as defined in Article 3(1), point\n(16), of Regulation (EU) No. 2023/1114 of the European\nParliament and of the Council of 31 May 202315..",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "type": "regulation",
+          "number": "23",
+          "title": "Amendment of Protected Disclosures Act 2014",
+          "start_line": 1049,
+          "end_line": 1055,
+          "page": 23,
+          "content": "Amendment of Protected Disclosures Act 2014\n23. The Protected Disclosures Act 2014 (No. 14 of 2014) is amended in Part\nII of Schedule 6 by the insertion of the following point in Point A, sub-point 1:\n(xii) Regulation (EU)2023/1114 of the European Parliament and of the\nCouncil of 31 May 2023 on markets in crypto-assets, and amending Regulations\n(EU) No. 1093/2010 and (EU) No. 1095/2010 and Directives 2013/36/EU and\n(EU) 2019/1937 (OJ No. L 150, 9.6.2023, p.40)..",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

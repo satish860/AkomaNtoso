@@ -33,7 +33,8 @@ def main():
     parser.add_argument("pdf_path", nargs="?", default="data/2bf1f0e9f04e6fb4f8fef35e82c42aa5.pdf",
                         help="Path to PDF file (default: DPDP Act)")
     parser.add_argument("--max-depth", type=int, default=10, help="Maximum hierarchy depth")
-    parser.add_argument("--workers", type=int, default=5, help="Number of parallel workers")
+    parser.add_argument("--workers", type=int, default=3, help="Number of parallel workers")
+    parser.add_argument("--delay", type=float, default=1.0, help="Delay between LLM calls (seconds)")
     parser.add_argument("--sequential", action="store_true", help="Disable parallel processing")
     args = parser.parse_args()
 
@@ -41,6 +42,7 @@ def main():
     max_depth = args.max_depth
     parallel = not args.sequential
     max_workers = args.workers
+    call_delay = args.delay
 
     # Derive output filename from input
     pdf_name = Path(pdf_path).stem
@@ -71,7 +73,7 @@ def main():
 
     # Extract hierarchy level by level
     mode = f"parallel with {max_workers} workers" if parallel else "sequential"
-    print(f"Extracting hierarchy level-by-level ({mode})...")
+    print(f"Extracting hierarchy level-by-level ({mode}, {call_delay}s delay)...")
     print("-" * 60)
 
     start = time.time()
@@ -81,6 +83,7 @@ def main():
         max_depth=max_depth,
         parallel=parallel,
         max_workers=max_workers,
+        call_delay=call_delay,
         on_level_complete=on_level_complete,
         on_progress=print
     )

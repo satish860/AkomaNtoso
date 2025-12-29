@@ -84,6 +84,8 @@ Examples:
                         help="Maximum hierarchy depth (default: 10)")
     parser.add_argument("--workers", type=int, default=3,
                         help="Number of parallel workers (default: 3, reduce if rate limited)")
+    parser.add_argument("--delay", type=float, default=1.0,
+                        help="Delay in seconds between LLM calls (default: 1.0)")
     parser.add_argument("--sequential", action="store_true",
                         help="Disable parallel processing")
     parser.add_argument("--json-only", action="store_true",
@@ -182,20 +184,75 @@ Examples:
     if not args.quiet:
         print("Step 3: Extracting document hierarchy...")
         mode = "sequential" if args.sequential else f"parallel ({args.workers} workers)"
-        print(f"  Mode: {mode}")
+        print(f"  Mode: {mode}, {args.delay}s delay between calls")
 
     start_time = time.time()
 
+    # Track parent nodes for hierarchy display
+    parent_nodes = []
+
     def on_level_complete(level, nodes):
+        nonlocal parent_nodes
+        if args.quiet:
+            return
+
+        # Group nodes by type
+        by_type = {}
+        for node in nodes:
+            by_type.setdefault(node.type, []).append(node)
+
+        # Format type summary
+        type_summary = ", ".join(f"{len(v)} {k}{'s' if len(v) > 1 else ''}" for k, v in by_type.items())
+        print(f"\n  Level {level}: {len(nodes)} nodes ({type_summary})")
+        print(f"  {'-' * 50}")
+
+        if level == 1:
+            # Top level - just show all nodes
+            for node in nodes:
+                title_str = f": {node.title[:35]}..." if node.title and len(node.title) > 35 else (f": {node.title}" if node.title else "")
+                print(f"    {node.type} {node.number}{title_str} (p.{node.page})")
+            parent_nodes = nodes
+        else:
+            # Group by parent to show hierarchy
+            by_parent = {}
+            for node in nodes:
+                # Find parent by checking which parent's line range contains this node
+                parent_key = "unknown"
+                for p in parent_nodes:
+                    if p.start_line <= node.start_line <= p.end_line:
+                        parent_key = f"{p.type} {p.number}"
+                        break
+                by_parent.setdefault(parent_key, []).append(node)
+
+            # Display grouped by parent
+            for parent_key, children in by_parent.items():
+                child_types = {}
+                for c in children:
+                    child_types.setdefault(c.type, []).append(c)
+                type_str = ", ".join(f"{len(v)} {k}{'s' if len(v) > 1 else ''}" for k, v in child_types.items())
+                print(f"    {parent_key} -> {type_str}", flush=True)
+                # Show first 3 children
+                for child in children[:3]:
+                    title_str = f": {child.title[:30]}..." if child.title and len(child.title) > 30 else (f": {child.title}" if child.title else "")
+                    print(f"      {child.type} {child.number}{title_str}", flush=True)
+                if len(children) > 3:
+                    print(f"      ... ({len(children) - 3} more)", flush=True)
+
+            # Update parent_nodes for next level
+            parent_nodes = nodes
+
+    def on_progress(msg):
         if not args.quiet:
-            print(f"  Level {level}: {len(nodes)} nodes")
+            print(f"  {msg}", flush=True)
 
     nodes = extract_level_by_level(
         line_infos,
         max_depth=args.max_depth,
         parallel=not args.sequential,
         max_workers=args.workers,
-        on_level_complete=on_level_complete
+        call_delay=args.delay,
+        on_level_complete=on_level_complete,
+        on_progress=on_progress
     )
 
     extraction_time = time.time() - start_time
