@@ -1,5 +1,7 @@
 """Akoma Ntoso XML generator."""
 import re
+import json
+from typing import Dict, List, Any, Optional
 from lxml import etree
 from datetime import date, datetime
 from src.parser.document_extractor import Document
@@ -229,3 +231,222 @@ def generate_akn(doc: Document) -> str:
     ).decode("utf-8")
 
     return xml_str
+
+
+# =============================================================================
+# NEW: Generate AKN from JSON hierarchy
+# =============================================================================
+
+# Mapping from our hierarchy types to AKN element names
+TYPE_TO_AKN = {
+    "chapter": "chapter",
+    "part": "part",
+    "section": "section",
+    "subsection": "subsection",
+    "clause": "paragraph",
+    "sub-clause": "paragraph",
+    "subclause": "paragraph",
+    "definition": "paragraph",
+    "rule": "rule",
+    "regulation": "rule",
+    "article": "article",
+    "paragraph": "paragraph",
+    "subparagraph": "paragraph",
+    "schedule": "attachment",
+}
+
+
+def _sanitize_eid(text: str) -> str:
+    """Sanitize text for use in eId attribute."""
+    if not text:
+        return ""
+    # Remove parentheses, convert to lowercase, replace spaces with underscore
+    result = re.sub(r'[().\s]+', '_', text.lower())
+    result = re.sub(r'_+', '_', result)  # collapse multiple underscores
+    result = result.strip('_')
+    return result
+
+
+def _build_eid(ancestors: List[str], node_type: str, node_number: str) -> str:
+    """Build hierarchical eId from ancestors."""
+    sanitized_num = _sanitize_eid(node_number)
+    type_abbrev = {
+        "chapter": "chp",
+        "part": "part",
+        "section": "sec",
+        "subsection": "subsec",
+        "clause": "cl",
+        "sub-clause": "subcl",
+        "subclause": "subcl",
+        "definition": "def",
+        "rule": "rule",
+        "paragraph": "para",
+        "article": "art",
+    }.get(node_type, node_type[:3])
+
+    current = f"{type_abbrev}_{sanitized_num}"
+    if ancestors:
+        return "__".join(ancestors + [current])
+    return current
+
+
+def _generate_hierarchy_node(
+    parent_elem: etree.Element,
+    node: Dict[str, Any],
+    ancestors: List[str]
+) -> None:
+    """Recursively generate AKN elements from hierarchy node."""
+    node_type = node.get("type", "unknown")
+    node_number = node.get("number", "")
+    node_title = node.get("title")
+    node_content = node.get("content")
+    children = node.get("children", [])
+
+    # Determine AKN element type
+    akn_type = TYPE_TO_AKN.get(node_type, "hcontainer")
+
+    # Build eId
+    eid = _build_eid(ancestors, node_type, node_number)
+
+    # Create element - hcontainer requires 'name' attribute
+    if akn_type == "hcontainer":
+        elem = _sub(parent_elem, akn_type, eId=eid, name=node_type)
+    else:
+        elem = _sub(parent_elem, akn_type, eId=eid)
+
+    # Add num element
+    if node_number:
+        # Format number appropriately
+        if node_type == "chapter":
+            num_text = f"CHAPTER {node_number}"
+        elif node_type == "part":
+            num_text = f"PART {node_number}"
+        elif node_type == "section":
+            num_text = f"{node_number}."
+        else:
+            num_text = node_number
+        _sub(elem, "num", text=num_text)
+
+    # Add heading if present
+    if node_title:
+        _sub(elem, "heading", text=node_title)
+
+    # If leaf node with content, add content element
+    if node_content and not children:
+        content_elem = _sub(elem, "content")
+        # Split content into paragraphs
+        paragraphs = node_content.strip().split('\n')
+        for para in paragraphs:
+            if para.strip():
+                _sub(content_elem, "p", text=para.strip())
+
+    # Recursively process children
+    new_ancestors = ancestors + [_build_eid([], node_type, node_number)]
+    for child in children:
+        _generate_hierarchy_node(elem, child, new_ancestors)
+
+
+def generate_akn_from_hierarchy(
+    hierarchy_data: Dict[str, Any],
+    metadata: Optional[Dict[str, Any]] = None
+) -> str:
+    """
+    Generate Akoma Ntoso XML from JSON hierarchy.
+
+    Args:
+        hierarchy_data: Dictionary with 'hierarchy' key containing nodes
+        metadata: Optional metadata dict with title, year, act_number, date_enacted
+
+    Returns:
+        XML string in AKN 3.0 format
+    """
+    # Extract metadata
+    if metadata is None:
+        metadata = {}
+
+    title = metadata.get("title", "Untitled Act")
+    year = metadata.get("year", date.today().year)
+    act_number = metadata.get("act_number", 1)
+    date_enacted = metadata.get("date_enacted", f"{year}-01-01")
+
+    # Normalize date
+    if date_enacted and not re.match(r'^\d{4}-\d{2}-\d{2}$', date_enacted):
+        date_enacted = normalize_date(date_enacted)
+
+    # Create root element
+    root = _el("akomaNtoso")
+
+    # Create act element
+    act_name = re.sub(r'[,.\s]+', '', title)
+    act = _sub(root, "act", name=act_name)
+
+    # Generate meta
+    meta_elem = _sub(act, "meta")
+    identification = _sub(meta_elem, "identification", source="#source")
+
+    # FRBRWork - order: FRBRthis, FRBRuri, FRBRdate, FRBRauthor, FRBRcountry, FRBRnumber, FRBRname
+    work = _sub(identification, "FRBRWork")
+    _sub(work, "FRBRthis", value=f"/in/act/{year}/{act_number}/main")
+    _sub(work, "FRBRuri", value=f"/in/act/{year}/{act_number}")
+    _sub(work, "FRBRdate", date=date_enacted, name="enacted")
+    _sub(work, "FRBRauthor", href="#parliament")
+    _sub(work, "FRBRcountry", value="in")
+    _sub(work, "FRBRnumber", value=str(act_number))
+    _sub(work, "FRBRname", value=title)
+
+    # FRBRExpression - order: FRBRthis, FRBRuri, FRBRdate, FRBRauthor, FRBRlanguage
+    expr = _sub(identification, "FRBRExpression")
+    _sub(expr, "FRBRthis", value=f"/in/act/{year}/{act_number}/eng@{date_enacted}/main")
+    _sub(expr, "FRBRuri", value=f"/in/act/{year}/{act_number}/eng@{date_enacted}")
+    _sub(expr, "FRBRdate", date=date_enacted, name="publication")
+    _sub(expr, "FRBRauthor", href="#parliament")
+    _sub(expr, "FRBRlanguage", language="eng")
+
+    # FRBRManifestation - order: FRBRthis, FRBRuri, FRBRdate, FRBRauthor
+    today = date.today().isoformat()
+    manif = _sub(identification, "FRBRManifestation")
+    _sub(manif, "FRBRthis", value=f"/in/act/{year}/{act_number}/eng@{date_enacted}/main.xml")
+    _sub(manif, "FRBRuri", value=f"/in/act/{year}/{act_number}/eng@{date_enacted}/main.xml")
+    _sub(manif, "FRBRdate", date=today, name="transform")
+    _sub(manif, "FRBRauthor", href="#converter")
+
+    # Generate body
+    body = _sub(act, "body")
+
+    # Process hierarchy nodes
+    hierarchy = hierarchy_data.get("hierarchy", [])
+    for node in hierarchy:
+        _generate_hierarchy_node(body, node, [])
+
+    # Convert to string
+    xml_str = etree.tostring(
+        root,
+        pretty_print=True,
+        xml_declaration=True,
+        encoding="UTF-8"
+    ).decode("utf-8")
+
+    return xml_str
+
+
+def generate_akn_from_json_file(json_path: str, output_path: str, metadata: Optional[Dict[str, Any]] = None) -> str:
+    """
+    Generate AKN XML from JSON hierarchy file.
+
+    Args:
+        json_path: Path to JSON hierarchy file
+        output_path: Path for output XML file
+        metadata: Optional metadata overrides
+
+    Returns:
+        Path to generated XML file
+    """
+    with open(json_path, 'r', encoding='utf-8') as f:
+        hierarchy_data = json.load(f)
+
+    xml_str = generate_akn_from_hierarchy(hierarchy_data, metadata)
+
+    with open(output_path, 'w', encoding='utf-8') as f:
+        f.write(xml_str)
+
+    return output_path
